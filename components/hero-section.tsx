@@ -1,18 +1,22 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ChevronDown, Menu } from "lucide-react"
-import Image from "next/image"
-import { ThemeToggle } from "./theme-toggle"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, Menu } from "lucide-react";
+import Image from "next/image";
+import { ThemeToggle } from "./theme-toggle";
 
 interface HeroSectionProps {
-  onExplore: () => void
-  onMenuOpen: () => void
-  onContact: () => void
+  onExplore: () => void;
+  onMenuOpen: () => void;
+  onContact: () => void;
 }
 
-export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionProps) {
+export function HeroSection({
+  onExplore,
+  onMenuOpen,
+  onContact,
+}: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex flex-col justify-end pb-16 px-5">
       {/* Background Image */}
@@ -30,22 +34,22 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
       </div>
 
       {/* Logo/Brand */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
         className="absolute top-6 left-5 z-10"
       >
         <div className="flex items-center gap-3">
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05, rotate: 2 }}
             className="h-11 w-11 rounded-xl overflow-hidden shadow-lg ring-2 ring-primary/30"
           >
-            <Image 
-              src="/images/hh-logo.jpg" 
-              alt="HH Consulting Logo" 
-              width={44} 
-              height={44} 
+            <Image
+              src="/images/hh-logo.jpg"
+              alt="HH Consulting Logo"
+              width={44}
+              height={44}
               className="object-cover"
             />
           </motion.div>
@@ -53,7 +57,9 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
             <span className="font-heading text-sm font-bold tracking-wide text-white dark:text-foreground">
               HH Consulting
             </span>
-            <span className="text-[10px] text-white/70 dark:text-muted-foreground tracking-wider">Architects & Engineers</span>
+            <span className="text-[10px] text-white/70 dark:text-muted-foreground tracking-wider">
+              Architects & Engineers
+            </span>
           </div>
         </div>
       </motion.div>
@@ -78,13 +84,13 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
       </motion.div>
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
         className="relative z-10 max-w-[65%] pr-4"
       >
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
@@ -92,7 +98,7 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
         >
           Worldwide Consulting
         </motion.p>
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
@@ -101,13 +107,14 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
           Engineering the Future,{" "}
           <span className="text-primary">Designing Spaces.</span>
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
           className="text-white/80 dark:text-muted-foreground text-xs leading-relaxed mb-5 max-w-[90%]"
         >
-          Your dedicated global partner in design and construction supervision since 1992.
+          Your dedicated global partner in design and construction supervision
+          since 1992.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -115,7 +122,7 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
           transition={{ delay: 0.8 }}
           className="flex flex-wrap gap-2"
         >
-          <Button 
+          <Button
             onClick={onExplore}
             size="sm"
             className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wide px-4 rounded-full group text-xs"
@@ -129,19 +136,18 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
               →
             </motion.span>
           </Button>
-          <Button 
+          <Button
             onClick={onContact}
             size="sm"
             variant="outline"
-            className="border-white/50 text-white hover:bg-white/10 dark:border-foreground/30 dark:text-foreground dark:hover:bg-foreground/10 font-medium tracking-wide px-4 rounded-full text-xs"
+            className="border-white/50 text-primary-foreground hover:bg-white/10 dark:border-foreground/30 dark:text-foreground dark:hover:bg-foreground/10 font-medium tracking-wide px-4 rounded-full text-xs"
           >
             Consult Us
           </Button>
         </motion.div>
       </motion.div>
 
-      {/* Quick Stats - Moved to not overlap */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.9 }}
@@ -149,20 +155,26 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
       >
         <div className="bg-white/90 dark:bg-card/80 backdrop-blur-sm border border-white/20 dark:border-border rounded-md px-2.5 py-1.5 text-right shadow-sm">
           <p className="text-sm font-bold text-primary leading-none">30+</p>
-          <p className="text-[7px] text-slate-600 dark:text-muted-foreground uppercase tracking-wider mt-0.5">Years</p>
+          <p className="text-[7px] text-slate-600 dark:text-muted-foreground uppercase tracking-wider mt-0.5">
+            Years
+          </p>
         </div>
         <div className="bg-white/90 dark:bg-card/80 backdrop-blur-sm border border-white/20 dark:border-border rounded-md px-2.5 py-1.5 text-right shadow-sm">
           <p className="text-sm font-bold text-primary leading-none">500+</p>
-          <p className="text-[7px] text-slate-600 dark:text-muted-foreground uppercase tracking-wider mt-0.5">Projects</p>
+          <p className="text-[7px] text-slate-600 dark:text-muted-foreground uppercase tracking-wider mt-0.5">
+            Projects
+          </p>
         </div>
         <div className="bg-white/90 dark:bg-card/80 backdrop-blur-sm border border-white/20 dark:border-border rounded-md px-2.5 py-1.5 text-right shadow-sm">
           <p className="text-sm font-bold text-primary leading-none">200+</p>
-          <p className="text-[7px] text-slate-600 dark:text-muted-foreground uppercase tracking-wider mt-0.5">Staff</p>
+          <p className="text-[7px] text-slate-600 dark:text-muted-foreground uppercase tracking-wider mt-0.5">
+            Staff
+          </p>
         </div>
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.button 
+      <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
@@ -170,9 +182,11 @@ export function HeroSection({ onExplore, onMenuOpen, onContact }: HeroSectionPro
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
         aria-label="Scroll to projects"
       >
-        <span className="text-[10px] text-white/70 dark:text-muted-foreground uppercase tracking-widest">Scroll</span>
+        <span className="text-[10px] text-white/70 dark:text-muted-foreground uppercase tracking-widest">
+          Scroll
+        </span>
         <ChevronDown className="w-5 h-5 text-white/70 dark:text-muted-foreground animate-bounce" />
       </motion.button>
     </section>
-  )
+  );
 }
