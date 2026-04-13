@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react"
-import Image from "next/image"
-import { ThemeToggle } from "./theme-toggle"
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import Image from "next/image";
+import { ThemeToggle } from "./theme-toggle";
 
 interface TestimonialsProps {
-  onBack: () => void
+  onBack: () => void;
 }
 
 const testimonials = [
@@ -15,43 +15,48 @@ const testimonials = [
     id: 1,
     name: "Ministry of Culture & Tourism",
     role: "Government Client",
-    content: "HH Consulting delivered exceptional work on the Tiya Heritage Park project. Their attention to detail and respect for our cultural heritage while implementing modern infrastructure was remarkable.",
+    content:
+      "HH Consulting delivered exceptional work on the Tiya Heritage Park project. Their attention to detail and respect for our cultural heritage while implementing modern infrastructure was remarkable.",
     rating: 5,
-    project: "Tiya World Heritage Site"
+    project: "Tiya World Heritage Site",
   },
   {
     id: 2,
     name: "Ethiopian Airports Enterprise",
     role: "Government Client",
-    content: "The terminal designs for Axum, Jimma, and Gambela airports exceeded our expectations. Professional team with deep understanding of aviation infrastructure requirements.",
+    content:
+      "The terminal designs for Axum, Jimma, and Gambela airports exceeded our expectations. Professional team with deep understanding of aviation infrastructure requirements.",
     rating: 5,
-    project: "Multiple Airport Terminals"
+    project: "Multiple Airport Terminals",
   },
   {
     id: 3,
     name: "Haramaya University",
     role: "Educational Institution",
-    content: "Outstanding architectural design for our guest house and conference facilities. The team was responsive, innovative, and delivered on time and within budget.",
+    content:
+      "Outstanding architectural design for our guest house and conference facilities. The team was responsive, innovative, and delivered on time and within budget.",
     rating: 5,
-    project: "University Guest House & Conference"
+    project: "University Guest House & Conference",
   },
   {
     id: 4,
     name: "Sidama Roads Authority",
     role: "Regional Government",
-    content: "Their bridge designs for our regional roads have significantly improved connectivity. Engineering excellence combined with practical solutions.",
+    content:
+      "Their bridge designs for our regional roads have significantly improved connectivity. Engineering excellence combined with practical solutions.",
     rating: 5,
-    project: "Multiple Bridge Projects"
+    project: "Multiple Bridge Projects",
   },
   {
     id: 5,
     name: "Djibouti International School",
     role: "International Client",
-    content: "Working with HH Consulting on our school expansion was a pleasure. They understood our vision for a modern learning environment and delivered beautifully.",
+    content:
+      "Working with HH Consulting on our school expansion was a pleasure. They understood our vision for a modern learning environment and delivered beautifully.",
     rating: 5,
-    project: "International School Design"
+    project: "International School Design",
   },
-]
+];
 
 const clientLogos = [
   { name: "Ethiopian Airports Enterprise", abbr: "EAE" },
@@ -62,18 +67,20 @@ const clientLogos = [
   { name: "Ethiopian Roads Authority", abbr: "ERA" },
   { name: "Ministry of Education", abbr: "MoE" },
   { name: "Djibouti Government", abbr: "DJ" },
-]
+];
 
 export function TestimonialsSection({ onBack }: TestimonialsProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-  }
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+    );
+  };
 
   return (
     <motion.section
@@ -95,7 +102,13 @@ export function TestimonialsSection({ onBack }: TestimonialsProps) {
         </motion.button>
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
-            <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+            <Image
+              src="/images/hh-logo.jpg"
+              alt="HH"
+              width={32}
+              height={32}
+              className="object-cover"
+            />
           </div>
           <ThemeToggle />
         </div>
@@ -108,9 +121,15 @@ export function TestimonialsSection({ onBack }: TestimonialsProps) {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-2">Client Feedback</p>
-          <h1 className="font-heading text-2xl font-bold text-foreground">Testimonials</h1>
-          <p className="text-sm text-muted-foreground mt-2">What our clients say about working with us</p>
+          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-2">
+            Client Feedback
+          </p>
+          <h1 className="font-heading text-2xl font-bold text-foreground">
+            Testimonials
+          </h1>
+          <p className="text-sm text-muted-foreground mt-2">
+            What our clients say about working with us
+          </p>
         </motion.div>
 
         {/* Testimonial Card */}
@@ -122,7 +141,7 @@ export function TestimonialsSection({ onBack }: TestimonialsProps) {
           className="bg-card border border-border rounded-2xl p-6 mb-6"
         >
           <Quote className="w-8 h-8 text-primary/30 mb-4" />
-          
+
           <p className="text-sm leading-relaxed text-foreground mb-6">
             {`"${testimonials[currentIndex].content}"`}
           </p>
@@ -134,9 +153,15 @@ export function TestimonialsSection({ onBack }: TestimonialsProps) {
           </div>
 
           <div className="border-t border-border pt-4">
-            <p className="font-semibold text-sm text-foreground">{testimonials[currentIndex].name}</p>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{testimonials[currentIndex].role}</p>
-            <p className="text-[10px] text-primary mt-1">Project: {testimonials[currentIndex].project}</p>
+            <p className="font-semibold text-sm text-foreground">
+              {testimonials[currentIndex].name}
+            </p>
+            <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
+              {testimonials[currentIndex].role}
+            </p>
+            <p className="text-[10px] text-primary mt-1">
+              Project: {testimonials[currentIndex].project}
+            </p>
           </div>
         </motion.div>
 
@@ -148,7 +173,7 @@ export function TestimonialsSection({ onBack }: TestimonialsProps) {
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  idx === currentIndex ? 'bg-primary w-6' : 'bg-border'
+                  idx === currentIndex ? "bg-primary w-6" : "bg-border"
                 }`}
               />
             ))}
@@ -179,7 +204,9 @@ export function TestimonialsSection({ onBack }: TestimonialsProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">Trusted By</p>
+          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">
+            Trusted By
+          </p>
           <div className="grid grid-cols-4 gap-3">
             {clientLogos.map((client, idx) => (
               <motion.div
@@ -190,13 +217,17 @@ export function TestimonialsSection({ onBack }: TestimonialsProps) {
                 whileHover={{ scale: 1.05 }}
                 className="bg-card border border-border rounded-lg p-3 flex flex-col items-center justify-center aspect-square"
               >
-                <span className="text-lg font-bold text-primary">{client.abbr}</span>
-                <span className="text-[7px] text-muted-foreground text-center mt-1 leading-tight">{client.name}</span>
+                <span className="text-lg font-bold text-primary">
+                  {client.abbr}
+                </span>
+                <span className="text-[7px] text-muted-foreground text-center mt-1 leading-tight">
+                  {client.name}
+                </span>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
     </motion.section>
-  )
+  );
 }

@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import { ArrowLeft, Mail, Phone, Linkedin, X, ChevronDown } from "lucide-react"
-import { ThemeToggle } from "./theme-toggle"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { ArrowLeft, Mail, Phone, Linkedin, X, ChevronDown } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 interface StaffSectionProps {
-  onBack: () => void
+  onBack: () => void;
 }
 
 interface TeamMember {
-  id: string
-  name: string
-  title: string
-  department: string
-  experience: string
-  education: string
-  specialization: string[]
-  initials: string
-  bio: string
+  id: string;
+  name: string;
+  title: string;
+  department: string;
+  experience: string;
+  education: string;
+  specialization: string[];
+  initials: string;
+  bio: string;
 }
 
 const leadership: TeamMember[] = [
@@ -30,9 +30,13 @@ const leadership: TeamMember[] = [
     department: "Executive",
     experience: "30+ years",
     education: "MSc Civil Engineering",
-    specialization: ["Strategic Planning", "Project Management", "Structural Design"],
+    specialization: [
+      "Strategic Planning",
+      "Project Management",
+      "Structural Design",
+    ],
     initials: "HS",
-    bio: "Founder and General Manager of HH Consulting with over three decades of experience in leading major infrastructure projects across Ethiopia and East Africa."
+    bio: "Founder and General Manager of HH Consulting with over three decades of experience in leading major infrastructure projects across Ethiopia and East Africa.",
   },
   {
     id: "2",
@@ -41,9 +45,13 @@ const leadership: TeamMember[] = [
     department: "Executive",
     experience: "20+ years",
     education: "M.Arch, Architecture",
-    specialization: ["Operations Management", "Design Review", "Quality Control"],
+    specialization: [
+      "Operations Management",
+      "Design Review",
+      "Quality Control",
+    ],
     initials: "FG",
-    bio: "Deputy General Manager overseeing daily operations and ensuring excellence in all project deliverables."
+    bio: "Deputy General Manager overseeing daily operations and ensuring excellence in all project deliverables.",
   },
   {
     id: "3",
@@ -52,9 +60,13 @@ const leadership: TeamMember[] = [
     department: "Administration",
     experience: "15+ years",
     education: "MBA, Human Resources",
-    specialization: ["HR Management", "Talent Development", "Organizational Culture"],
+    specialization: [
+      "HR Management",
+      "Talent Development",
+      "Organizational Culture",
+    ],
     initials: "YT",
-    bio: "Leading the HR department with focus on building and nurturing a world-class engineering team."
+    bio: "Leading the HR department with focus on building and nurturing a world-class engineering team.",
   },
   {
     id: "4",
@@ -63,9 +75,13 @@ const leadership: TeamMember[] = [
     department: "Business Development",
     experience: "12+ years",
     education: "BSc Civil Engineering",
-    specialization: ["Tender Management", "Contract Negotiation", "Cost Estimation"],
+    specialization: [
+      "Tender Management",
+      "Contract Negotiation",
+      "Cost Estimation",
+    ],
     initials: "DM",
-    bio: "Head of Bid Department responsible for securing major projects through competitive tendering."
+    bio: "Head of Bid Department responsible for securing major projects through competitive tendering.",
   },
   {
     id: "5",
@@ -74,11 +90,15 @@ const leadership: TeamMember[] = [
     department: "Technology",
     experience: "10+ years",
     education: "MSc Information Technology",
-    specialization: ["BIM Implementation", "Digital Infrastructure", "CAD Systems"],
+    specialization: [
+      "BIM Implementation",
+      "Digital Infrastructure",
+      "CAD Systems",
+    ],
     initials: "HS",
-    bio: "Leading digital transformation initiatives and maintaining cutting-edge technology infrastructure."
+    bio: "Leading digital transformation initiatives and maintaining cutting-edge technology infrastructure.",
   },
-]
+];
 
 const departments = [
   { name: "Architecture", count: 45, color: "bg-amber-500" },
@@ -86,11 +106,11 @@ const departments = [
   { name: "MEP", count: 32, color: "bg-green-500" },
   { name: "Project Management", count: 25, color: "bg-purple-500" },
   { name: "Admin & Support", count: 60, color: "bg-slate-500" },
-]
+];
 
 export function StaffSection({ onBack }: StaffSectionProps) {
-  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
-  const [expandedDept, setExpandedDept] = useState<string | null>(null)
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [expandedDept, setExpandedDept] = useState<string | null>(null);
 
   return (
     <motion.div
@@ -110,10 +130,16 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           <ArrowLeft className="w-5 h-5" />
           <span className="text-xs tracking-wider uppercase">Back</span>
         </motion.button>
-        
+
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
-            <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+            <Image
+              src="/images/hh-logo.jpg"
+              alt="HH"
+              width={32}
+              height={32}
+              className="object-cover"
+            />
           </div>
           <ThemeToggle />
         </div>
@@ -129,14 +155,18 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           quality={100}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="absolute bottom-6 left-5 right-5"
         >
-          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-1">Meet Our</p>
-          <h1 className="font-heading text-2xl font-bold text-foreground">Team</h1>
+          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-1">
+            Meet Our
+          </p>
+          <h1 className="font-heading text-2xl font-bold text-foreground">
+            Team
+          </h1>
         </motion.div>
       </div>
 
@@ -150,7 +180,9 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           className="bg-card border border-border rounded-xl p-5"
         >
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-heading text-lg font-semibold text-foreground">Our Workforce</h2>
+            <h2 className="font-heading text-lg font-semibold text-foreground">
+              Our Workforce
+            </h2>
             <span className="text-2xl font-bold text-primary">200+</span>
           </div>
           <div className="space-y-3">
@@ -162,14 +194,22 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                 transition={{ delay: 0.4 + index * 0.1 }}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[11px] text-muted-foreground">{dept.name}</span>
-                  <span className="text-[11px] font-medium text-foreground">{dept.count}</span>
+                  <span className="text-[11px] text-muted-foreground">
+                    {dept.name}
+                  </span>
+                  <span className="text-[11px] font-medium text-foreground">
+                    {dept.count}
+                  </span>
                 </div>
                 <div className="h-2 bg-secondary rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${(dept.count / 60) * 100}%` }}
-                    transition={{ delay: 0.5 + index * 0.1, duration: 0.8, ease: "easeOut" }}
+                    transition={{
+                      delay: 0.5 + index * 0.1,
+                      duration: 0.8,
+                      ease: "easeOut",
+                    }}
                     className={`h-full ${dept.color} rounded-full`}
                   />
                 </div>
@@ -185,7 +225,9 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           transition={{ delay: 0.6 }}
           className="space-y-4"
         >
-          <h2 className="font-heading text-lg font-semibold text-foreground">Leadership Team</h2>
+          <h2 className="font-heading text-lg font-semibold text-foreground">
+            Leadership Team
+          </h2>
           <div className="space-y-3">
             {leadership.map((member, index) => (
               <motion.button
@@ -199,26 +241,42 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                 className="w-full bg-card border border-border rounded-xl p-4 flex items-center gap-4 text-left group"
               >
                 {/* Avatar */}
-                <motion.div 
+                <motion.div
                   whileHover={{ rotate: 5 }}
                   className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center flex-shrink-0"
                 >
-                  <span className="font-heading text-lg font-bold text-primary-foreground">{member.initials}</span>
+                  <span className="font-heading text-lg font-bold text-primary-foreground">
+                    {member.initials}
+                  </span>
                 </motion.div>
-                
+
                 {/* Info */}
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">
                     {member.name}
                   </p>
-                  <p className="text-[11px] text-primary mb-1">{member.title}</p>
-                  <p className="text-[10px] text-muted-foreground">{member.experience} experience</p>
+                  <p className="text-[11px] text-primary mb-1">
+                    {member.title}
+                  </p>
+                  <p className="text-[10px] text-muted-foreground">
+                    {member.experience} experience
+                  </p>
                 </div>
 
                 {/* Arrow indicator */}
                 <div className="text-muted-foreground group-hover:text-primary transition-colors">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </div>
               </motion.button>
@@ -233,11 +291,21 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           transition={{ delay: 0.9 }}
           className="space-y-4 pb-8"
         >
-          <h2 className="font-heading text-lg font-semibold text-foreground">Technical Expertise</h2>
+          <h2 className="font-heading text-lg font-semibold text-foreground">
+            Technical Expertise
+          </h2>
           <div className="flex flex-wrap gap-2">
             {[
-              "AutoCAD", "Revit", "SketchUp", "ETABS", "SAP2000", 
-              "Primavera", "MS Project", "Rhino", "Lumion", "ArchiCAD"
+              "AutoCAD",
+              "Revit",
+              "SketchUp",
+              "ETABS",
+              "SAP2000",
+              "Primavera",
+              "MS Project",
+              "Rhino",
+              "Lumion",
+              "ArchiCAD",
             ].map((skill, index) => (
               <motion.span
                 key={skill}
@@ -292,12 +360,20 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                 {/* Avatar & Name */}
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
-                    <span className="font-heading text-2xl font-bold text-primary-foreground">{selectedMember.initials}</span>
+                    <span className="font-heading text-2xl font-bold text-primary-foreground">
+                      {selectedMember.initials}
+                    </span>
                   </div>
                   <div>
-                    <h3 className="font-heading text-lg font-bold text-foreground">{selectedMember.name}</h3>
-                    <p className="text-sm text-primary">{selectedMember.title}</p>
-                    <p className="text-xs text-muted-foreground">{selectedMember.department} Department</p>
+                    <h3 className="font-heading text-lg font-bold text-foreground">
+                      {selectedMember.name}
+                    </h3>
+                    <p className="text-sm text-primary">
+                      {selectedMember.title}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {selectedMember.department} Department
+                    </p>
                   </div>
                 </div>
 
@@ -310,27 +386,56 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                      <svg className="w-4 h-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      <svg
+                        className="w-4 h-4 text-muted-foreground"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-0.5">Education</p>
-                      <p className="text-xs text-foreground">{selectedMember.education}</p>
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-0.5">
+                        Education
+                      </p>
+                      <p className="text-xs text-foreground">
+                        {selectedMember.education}
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                      <svg className="w-4 h-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      <svg
+                        className="w-4 h-4 text-muted-foreground"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">Specializations</p>
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">
+                        Specializations
+                      </p>
                       <div className="flex flex-wrap gap-1.5">
                         {selectedMember.specialization.map((spec) => (
-                          <span key={spec} className="px-2 py-1 bg-primary/10 text-primary text-[10px] rounded-md">
+                          <span
+                            key={spec}
+                            className="px-2 py-1 bg-primary/10 text-primary text-[10px] rounded-md"
+                          >
                             {spec}
                           </span>
                         ))}
@@ -364,5 +469,5 @@ export function StaffSection({ onBack }: StaffSectionProps) {
         )}
       </AnimatePresence>
     </motion.div>
-  )
+  );
 }

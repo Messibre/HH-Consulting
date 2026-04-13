@@ -1,64 +1,106 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ChevronLeft, MessageSquare, Search, PenTool, FileText, Hammer, CheckCircle2 } from "lucide-react"
-import Image from "next/image"
-import { ThemeToggle } from "./theme-toggle"
+import { motion } from "framer-motion";
+import {
+  ChevronLeft,
+  MessageSquare,
+  Search,
+  PenTool,
+  FileText,
+  Hammer,
+  CheckCircle2,
+} from "lucide-react";
+import Image from "next/image";
+import { ThemeToggle } from "./theme-toggle";
 
 interface ProcessProps {
-  onBack: () => void
+  onBack: () => void;
 }
 
 const processSteps = [
   {
     number: "01",
     title: "Initial Consultation",
-    description: "We meet to understand your vision, requirements, budget, and timeline. Site visits are conducted to assess existing conditions.",
+    description:
+      "We meet to understand your vision, requirements, budget, and timeline. Site visits are conducted to assess existing conditions.",
     icon: MessageSquare,
     duration: "1-2 weeks",
-    deliverables: ["Project brief", "Site analysis report", "Preliminary budget estimate"]
+    deliverables: [
+      "Project brief",
+      "Site analysis report",
+      "Preliminary budget estimate",
+    ],
   },
   {
     number: "02",
     title: "Feasibility & Concept",
-    description: "We analyze project viability, develop initial concepts, and explore design options that align with your goals.",
+    description:
+      "We analyze project viability, develop initial concepts, and explore design options that align with your goals.",
     icon: Search,
     duration: "2-4 weeks",
-    deliverables: ["Feasibility study", "Concept sketches", "Space programming"]
+    deliverables: [
+      "Feasibility study",
+      "Concept sketches",
+      "Space programming",
+    ],
   },
   {
     number: "03",
     title: "Schematic Design",
-    description: "Refining the selected concept into detailed schematic drawings showing layouts, elevations, and preliminary systems.",
+    description:
+      "Refining the selected concept into detailed schematic drawings showing layouts, elevations, and preliminary systems.",
     icon: PenTool,
     duration: "4-8 weeks",
-    deliverables: ["Floor plans", "Elevations", "3D visualizations", "Preliminary cost estimate"]
+    deliverables: [
+      "Floor plans",
+      "Elevations",
+      "3D visualizations",
+      "Preliminary cost estimate",
+    ],
   },
   {
     number: "04",
     title: "Design Development",
-    description: "Full technical development of architectural, structural, and MEP systems with detailed specifications.",
+    description:
+      "Full technical development of architectural, structural, and MEP systems with detailed specifications.",
     icon: FileText,
     duration: "6-12 weeks",
-    deliverables: ["Technical drawings", "Structural calculations", "MEP designs", "Material specifications"]
+    deliverables: [
+      "Technical drawings",
+      "Structural calculations",
+      "MEP designs",
+      "Material specifications",
+    ],
   },
   {
     number: "05",
     title: "Construction Documents",
-    description: "Complete set of drawings and documents ready for contractor bidding and construction permitting.",
+    description:
+      "Complete set of drawings and documents ready for contractor bidding and construction permitting.",
     icon: FileText,
     duration: "4-8 weeks",
-    deliverables: ["Bid documents", "Bill of Quantities", "Technical specifications", "Permit applications"]
+    deliverables: [
+      "Bid documents",
+      "Bill of Quantities",
+      "Technical specifications",
+      "Permit applications",
+    ],
   },
   {
     number: "06",
     title: "Construction & Supervision",
-    description: "We oversee construction to ensure quality, adherence to design, and project completion on time and budget.",
+    description:
+      "We oversee construction to ensure quality, adherence to design, and project completion on time and budget.",
     icon: Hammer,
     duration: "Project duration",
-    deliverables: ["Site inspections", "Progress reports", "Quality assurance", "Final handover"]
+    deliverables: [
+      "Site inspections",
+      "Progress reports",
+      "Quality assurance",
+      "Final handover",
+    ],
   },
-]
+];
 
 export function ProcessSection({ onBack }: ProcessProps) {
   return (
@@ -81,7 +123,13 @@ export function ProcessSection({ onBack }: ProcessProps) {
         </motion.button>
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
-            <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+            <Image
+              src="/images/hh-logo.jpg"
+              alt="HH"
+              width={32}
+              height={32}
+              className="object-cover"
+            />
           </div>
           <ThemeToggle />
         </div>
@@ -94,9 +142,15 @@ export function ProcessSection({ onBack }: ProcessProps) {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-2">How We Work</p>
-          <h1 className="font-heading text-2xl font-bold text-foreground">Our Process</h1>
-          <p className="text-sm text-muted-foreground mt-2">A structured approach from concept to completion</p>
+          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-2">
+            How We Work
+          </p>
+          <h1 className="font-heading text-2xl font-bold text-foreground">
+            Our Process
+          </h1>
+          <p className="text-sm text-muted-foreground mt-2">
+            A structured approach from concept to completion
+          </p>
         </motion.div>
 
         {/* Process Timeline */}
@@ -117,7 +171,9 @@ export function ProcessSection({ onBack }: ProcessProps) {
                 whileHover={{ scale: 1.1 }}
                 className="absolute left-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center"
               >
-                <span className="text-xs font-bold text-primary-foreground">{step.number}</span>
+                <span className="text-xs font-bold text-primary-foreground">
+                  {step.number}
+                </span>
               </motion.div>
 
               {/* Content Card */}
@@ -130,15 +186,21 @@ export function ProcessSection({ onBack }: ProcessProps) {
                     <step.icon className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-sm text-foreground">{step.title}</h3>
+                    <h3 className="font-semibold text-sm text-foreground">
+                      {step.title}
+                    </h3>
                     <p className="text-[10px] text-primary">{step.duration}</p>
                   </div>
                 </div>
-                
-                <p className="text-xs text-muted-foreground leading-relaxed mb-3">{step.description}</p>
-                
+
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                  {step.description}
+                </p>
+
                 <div className="border-t border-border pt-3">
-                  <p className="text-[9px] text-muted-foreground uppercase tracking-wider mb-2">Deliverables</p>
+                  <p className="text-[9px] text-muted-foreground uppercase tracking-wider mb-2">
+                    Deliverables
+                  </p>
                   <div className="flex flex-wrap gap-1.5">
                     {step.deliverables.map((item, dIdx) => (
                       <span
@@ -163,8 +225,12 @@ export function ProcessSection({ onBack }: ProcessProps) {
           transition={{ delay: 0.7 }}
           className="mt-8 bg-gradient-to-r from-primary/20 to-primary/5 border border-primary/30 rounded-xl p-5 text-center"
         >
-          <p className="text-sm font-medium text-foreground mb-2">Ready to start your project?</p>
-          <p className="text-xs text-muted-foreground mb-4">Let&apos;s discuss how we can bring your vision to life</p>
+          <p className="text-sm font-medium text-foreground mb-2">
+            Ready to start your project?
+          </p>
+          <p className="text-xs text-muted-foreground mb-4">
+            Let&apos;s discuss how we can bring your vision to life
+          </p>
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -175,5 +241,5 @@ export function ProcessSection({ onBack }: ProcessProps) {
         </motion.div>
       </div>
     </motion.section>
-  )
+  );
 }

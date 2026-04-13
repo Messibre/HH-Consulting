@@ -1,12 +1,20 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ChevronLeft, Award, Shield, FileCheck, BadgeCheck, Download, Building2 } from "lucide-react"
-import Image from "next/image"
-import { ThemeToggle } from "./theme-toggle"
+import { motion } from "framer-motion";
+import {
+  ChevronLeft,
+  Award,
+  Shield,
+  FileCheck,
+  BadgeCheck,
+  Download,
+  Building2,
+} from "lucide-react";
+import Image from "next/image";
+import { ThemeToggle } from "./theme-toggle";
 
 interface CredentialsProps {
-  onBack: () => void
+  onBack: () => void;
 }
 
 const certifications = [
@@ -14,31 +22,35 @@ const certifications = [
     icon: Award,
     title: "Grade 1 Consulting License",
     issuer: "Ministry of Urban Development & Construction",
-    description: "Highest grade certification for architectural and engineering consulting services in Ethiopia",
-    year: "Since 1992"
+    description:
+      "Highest grade certification for architectural and engineering consulting services in Ethiopia",
+    year: "Since 1992",
   },
   {
     icon: Shield,
     title: "Professional Engineering License",
     issuer: "Ethiopian Association of Engineers",
-    description: "Licensed to practice civil, structural, and MEP engineering across all project categories",
-    year: "Active"
+    description:
+      "Licensed to practice civil, structural, and MEP engineering across all project categories",
+    year: "Active",
   },
   {
     icon: FileCheck,
     title: "ISO 9001:2015 Compliant",
     issuer: "Quality Management Systems",
-    description: "Adherence to international quality management standards in all project deliverables",
-    year: "Certified"
+    description:
+      "Adherence to international quality management standards in all project deliverables",
+    year: "Certified",
   },
   {
     icon: BadgeCheck,
     title: "Architectural Practice License",
     issuer: "Ethiopian Institute of Architects",
-    description: "Full authorization for architectural design and supervision services",
-    year: "Active"
+    description:
+      "Full authorization for architectural design and supervision services",
+    year: "Active",
   },
-]
+];
 
 const tools = [
   { name: "AutoCAD", category: "2D/3D Design" },
@@ -49,7 +61,7 @@ const tools = [
   { name: "Lumion", category: "Rendering" },
   { name: "Civil 3D", category: "Infrastructure" },
   { name: "Primavera", category: "Project Mgmt" },
-]
+];
 
 const standards = [
   "Ethiopian Building Code (EBCS)",
@@ -60,14 +72,14 @@ const standards = [
   "Ethiopian Roads Authority Standards",
   "IATA Airport Design Guidelines",
   "WHO Healthcare Facility Standards",
-]
+];
 
 const affiliations = [
   "Ethiopian Association of Architects",
   "Ethiopian Association of Engineers",
   "Ethiopian Contractors Association",
   "Association of Consulting Engineers Ethiopia",
-]
+];
 
 export function CredentialsSection({ onBack }: CredentialsProps) {
   return (
@@ -90,7 +102,13 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
         </motion.button>
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
-            <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+            <Image
+              src="/images/hh-logo.jpg"
+              alt="HH"
+              width={32}
+              height={32}
+              className="object-cover"
+            />
           </div>
           <ThemeToggle />
         </div>
@@ -103,14 +121,22 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-2">Trust & Compliance</p>
-          <h1 className="font-heading text-2xl font-bold text-foreground">Credentials</h1>
-          <p className="text-sm text-muted-foreground mt-2">Our certifications, tools, and standards</p>
+          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-2">
+            Trust & Compliance
+          </p>
+          <h1 className="font-heading text-2xl font-bold text-foreground">
+            Credentials
+          </h1>
+          <p className="text-sm text-muted-foreground mt-2">
+            Our certifications, tools, and standards
+          </p>
         </motion.div>
 
         {/* Certifications */}
         <div className="mb-8">
-          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">Certifications & Licenses</p>
+          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">
+            Certifications & Licenses
+          </p>
           <div className="space-y-3">
             {certifications.map((cert, idx) => (
               <motion.div
@@ -127,11 +153,19 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="font-semibold text-sm text-foreground">{cert.title}</h3>
-                      <span className="text-[9px] text-primary bg-primary/10 px-2 py-0.5 rounded-full">{cert.year}</span>
+                      <h3 className="font-semibold text-sm text-foreground">
+                        {cert.title}
+                      </h3>
+                      <span className="text-[9px] text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                        {cert.year}
+                      </span>
                     </div>
-                    <p className="text-[10px] text-muted-foreground mt-0.5">{cert.issuer}</p>
-                    <p className="text-xs text-foreground/70 mt-2 leading-relaxed">{cert.description}</p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">
+                      {cert.issuer}
+                    </p>
+                    <p className="text-xs text-foreground/70 mt-2 leading-relaxed">
+                      {cert.description}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -146,7 +180,9 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
           transition={{ delay: 0.4 }}
           className="mb-8"
         >
-          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">Software & Tools</p>
+          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">
+            Software & Tools
+          </p>
           <div className="grid grid-cols-4 gap-2">
             {tools.map((tool, idx) => (
               <motion.div
@@ -154,8 +190,12 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
                 whileHover={{ scale: 1.02, y: -2 }}
                 className="bg-card border border-border rounded-lg p-2 text-center overflow-hidden"
               >
-                <p className="text-[10px] font-semibold text-foreground truncate">{tool.name}</p>
-                <p className="text-[7px] text-muted-foreground mt-0.5 truncate">{tool.category}</p>
+                <p className="text-[10px] font-semibold text-foreground truncate">
+                  {tool.name}
+                </p>
+                <p className="text-[7px] text-muted-foreground mt-0.5 truncate">
+                  {tool.category}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -168,7 +208,9 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
           transition={{ delay: 0.5 }}
           className="mb-8"
         >
-          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">Design Standards</p>
+          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">
+            Design Standards
+          </p>
           <div className="bg-card border border-border rounded-xl p-4">
             <div className="flex flex-wrap gap-2">
               {standards.map((standard, idx) => (
@@ -190,10 +232,15 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
           transition={{ delay: 0.6 }}
           className="mb-8"
         >
-          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">Professional Affiliations</p>
+          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">
+            Professional Affiliations
+          </p>
           <div className="space-y-2">
             {affiliations.map((affiliation, idx) => (
-              <div key={idx} className="flex items-center gap-3 text-sm text-foreground">
+              <div
+                key={idx}
+                className="flex items-center gap-3 text-sm text-foreground"
+              >
                 <Building2 className="w-4 h-4 text-primary" />
                 <span>{affiliation}</span>
               </div>
@@ -213,10 +260,12 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
             className="w-full bg-primary text-primary-foreground rounded-xl p-4 flex items-center justify-center gap-3"
           >
             <Download className="w-5 h-5" />
-            <span className="font-semibold text-sm">Download Company Profile (PDF)</span>
+            <span className="font-semibold text-sm">
+              Download Company Profile (PDF)
+            </span>
           </motion.button>
         </motion.div>
       </div>
     </motion.section>
-  )
+  );
 }

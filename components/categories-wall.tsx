@@ -1,36 +1,76 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Menu } from "lucide-react"
-import Image from "next/image"
-import { ThemeToggle } from "./theme-toggle"
+import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
+import Image from "next/image";
+import { ThemeToggle } from "./theme-toggle";
 
 interface Category {
-  id: string
-  name: string
-  position: { top: string; left: string }
+  id: string;
+  name: string;
+  position: { top: string; left: string };
 }
 
 const categories: Category[] = [
   { id: "site-works", name: "SITE WORKS", position: { top: "8%", left: "5%" } },
-  { id: "presentations", name: "PRESENTATIONS", position: { top: "12%", left: "55%" } },
-  { id: "potential-clients", name: "POTENTIAL CLIENTS", position: { top: "22%", left: "8%" } },
-  { id: "building-designs", name: "BUILDING DESIGNS", position: { top: "28%", left: "48%" } },
-  { id: "infrastructures", name: "INFRASTRUCTURES", position: { top: "38%", left: "12%" } },
-  { id: "terminal-design", name: "TERMINAL DESIGN", position: { top: "45%", left: "52%" } },
-  { id: "road-works", name: "ROAD WORKS", position: { top: "55%", left: "6%" } },
-  { id: "irrigations", name: "IRRIGATIONS", position: { top: "62%", left: "55%" } },
-  { id: "bridge-design", name: "BRIDGE DESIGN", position: { top: "72%", left: "15%" } },
-  { id: "feasibility-study", name: "FEASIBILITY STUDY", position: { top: "78%", left: "45%" } },
-]
+  {
+    id: "presentations",
+    name: "PRESENTATIONS",
+    position: { top: "12%", left: "55%" },
+  },
+  {
+    id: "potential-clients",
+    name: "POTENTIAL CLIENTS",
+    position: { top: "22%", left: "8%" },
+  },
+  {
+    id: "building-designs",
+    name: "BUILDING DESIGNS",
+    position: { top: "28%", left: "48%" },
+  },
+  {
+    id: "infrastructures",
+    name: "INFRASTRUCTURES",
+    position: { top: "38%", left: "12%" },
+  },
+  {
+    id: "terminal-design",
+    name: "TERMINAL DESIGN",
+    position: { top: "45%", left: "52%" },
+  },
+  {
+    id: "road-works",
+    name: "ROAD WORKS",
+    position: { top: "55%", left: "6%" },
+  },
+  {
+    id: "irrigations",
+    name: "IRRIGATIONS",
+    position: { top: "62%", left: "55%" },
+  },
+  {
+    id: "bridge-design",
+    name: "BRIDGE DESIGN",
+    position: { top: "72%", left: "15%" },
+  },
+  {
+    id: "feasibility-study",
+    name: "FEASIBILITY STUDY",
+    position: { top: "78%", left: "45%" },
+  },
+];
 
 interface CategoriesWallProps {
-  onSelectCategory: (categoryId: string) => void
-  onBack: () => void
-  onMenuOpen: () => void
+  onSelectCategory: (categoryId: string) => void;
+  onBack: () => void;
+  onMenuOpen: () => void;
 }
 
-export function CategoriesWall({ onSelectCategory, onBack, onMenuOpen }: CategoriesWallProps) {
+export function CategoriesWall({
+  onSelectCategory,
+  onBack,
+  onMenuOpen,
+}: CategoriesWallProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -61,8 +101,18 @@ export function CategoriesWall({ onSelectCategory, onBack, onMenuOpen }: Categor
         onClick={onBack}
         className="absolute top-6 left-5 z-20 flex items-center gap-2 text-foreground/80 hover:text-foreground transition-colors"
       >
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
         <span className="text-xs tracking-wider">BACK</span>
       </motion.button>
@@ -70,7 +120,13 @@ export function CategoriesWall({ onSelectCategory, onBack, onMenuOpen }: Categor
       {/* Header */}
       <div className="absolute top-6 right-5 z-20 flex items-center gap-3">
         <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
-          <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+          <Image
+            src="/images/hh-logo.jpg"
+            alt="HH"
+            width={32}
+            height={32}
+            className="object-cover"
+          />
         </div>
         <ThemeToggle />
         <motion.button
@@ -85,14 +141,18 @@ export function CategoriesWall({ onSelectCategory, onBack, onMenuOpen }: Categor
       </div>
 
       {/* Section Title - positioned to not overlap with categories */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
         className="absolute bottom-16 left-5 z-20"
       >
-        <p className="text-primary text-[9px] tracking-[0.3em] uppercase mb-0.5">Explore</p>
-        <h2 className="font-heading text-lg font-bold text-white">Our Services</h2>
+        <p className="text-primary text-[9px] tracking-[0.3em] uppercase mb-0.5">
+          Explore
+        </p>
+        <h2 className="font-heading text-lg font-bold text-white">
+          Our Services
+        </h2>
       </motion.div>
 
       {/* Category Labels - Positioned like building signage */}
@@ -109,33 +169,37 @@ export function CategoriesWall({ onSelectCategory, onBack, onMenuOpen }: Categor
             className="absolute group"
             style={{ top: category.position.top, left: category.position.left }}
           >
-            <motion.div 
+            <motion.div
               className="relative"
               whileHover={{ x: 4 }}
               transition={{ duration: 0.2 }}
             >
               {/* Label */}
-              <div className="bg-black/60 backdrop-blur-md border border-primary/40 px-3 py-1.5 rounded-sm
+              <div
+                className="bg-black/60 backdrop-blur-md border border-primary/40 px-3 py-1.5 rounded-sm
                             group-hover:bg-primary/40 group-hover:border-primary transition-all duration-300
-                            shadow-lg group-hover:shadow-primary/20">
-                <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.12em] text-white 
-                               group-hover:text-white transition-colors whitespace-nowrap">
+                            shadow-lg group-hover:shadow-primary/20"
+              >
+                <span
+                  className="text-[9px] sm:text-[10px] font-semibold tracking-[0.12em] text-white 
+                               group-hover:text-white transition-colors whitespace-nowrap"
+                >
                   {category.name}
                 </span>
               </div>
-              
+
               {/* Pulsing indicator dot */}
-              <motion.div 
+              <motion.div
                 className="absolute -right-1 -top-1 w-2 h-2 rounded-full bg-primary
                           group-hover:bg-white transition-colors"
-                animate={{ 
+                animate={{
                   scale: [1, 1.3, 1],
-                  opacity: [1, 0.7, 1]
+                  opacity: [1, 0.7, 1],
                 }}
-                transition={{ 
-                  repeat: Infinity, 
+                transition={{
+                  repeat: Infinity,
                   duration: 2,
-                  delay: index * 0.1 
+                  delay: index * 0.1,
                 }}
               />
             </motion.div>
@@ -144,13 +208,13 @@ export function CategoriesWall({ onSelectCategory, onBack, onMenuOpen }: Categor
       </div>
 
       {/* Bottom instruction */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
-        <motion.p 
+        <motion.p
           animate={{ y: [0, -4, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
           className="text-[10px] text-muted-foreground tracking-widest uppercase"
@@ -159,5 +223,5 @@ export function CategoriesWall({ onSelectCategory, onBack, onMenuOpen }: Categor
         </motion.p>
       </motion.div>
     </motion.div>
-  )
+  );
 }

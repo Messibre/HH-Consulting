@@ -1,46 +1,54 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { ArrowLeft, Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react"
-import { ThemeToggle } from "./theme-toggle"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  ArrowLeft,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  CheckCircle,
+} from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 interface ContactSectionProps {
-  onBack: () => void
+  onBack: () => void;
 }
 
 const officeLocations = [
-  { 
-    city: "Addis Ababa", 
-    country: "Ethiopia", 
+  {
+    city: "Addis Ababa",
+    country: "Ethiopia",
     address: "22 Mazoriya, Efrata Building, 3rd Floor",
     phone: "+251 11 868 3830",
-    isHQ: true 
+    isHQ: true,
   },
-  { 
-    city: "Djibouti", 
-    country: "Republic of Djibouti", 
+  {
+    city: "Djibouti",
+    country: "Republic of Djibouti",
     address: "International Projects Office",
     phone: "+251 91 359 2121",
-    isHQ: false 
+    isHQ: false,
   },
-]
+];
 
 export function ContactSectionNew({ onBack }: ContactSectionProps) {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     subject: "",
-    message: ""
-  })
-  const [isSubmitted, setIsSubmitted] = useState(false)
+    message: "",
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
-  }
+    e.preventDefault();
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 3000);
+  };
 
   return (
     <motion.div
@@ -60,10 +68,16 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
           <ArrowLeft className="w-5 h-5" />
           <span className="text-xs tracking-wider uppercase">Back</span>
         </motion.button>
-        
+
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
-            <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+            <Image
+              src="/images/hh-logo.jpg"
+              alt="HH"
+              width={32}
+              height={32}
+              className="object-cover"
+            />
           </div>
           <ThemeToggle />
         </div>
@@ -79,14 +93,18 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
           quality={100}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="absolute bottom-6 left-5 right-5"
         >
-          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-1">Get in Touch</p>
-          <h1 className="font-heading text-2xl font-bold text-foreground">Contact Us</h1>
+          <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-1">
+            Get in Touch
+          </p>
+          <h1 className="font-heading text-2xl font-bold text-foreground">
+            Contact Us
+          </h1>
         </motion.div>
       </div>
 
@@ -108,10 +126,14 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
               <Phone className="w-5 h-5 text-primary" />
             </div>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">Call Us</p>
-            <p className="text-xs font-medium text-foreground">+251 11 868 3830</p>
+            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">
+              Call Us
+            </p>
+            <p className="text-xs font-medium text-foreground">
+              +251 11 868 3830
+            </p>
           </motion.a>
-          
+
           <motion.a
             href="mailto:hhconsultingarchitectengineers@gmail.com"
             whileHover={{ scale: 1.02, y: -2 }}
@@ -121,8 +143,12 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
               <Mail className="w-5 h-5 text-primary" />
             </div>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">Email Us</p>
-            <p className="text-[10px] font-medium text-foreground break-all">hhconsulting@gmail.com</p>
+            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">
+              Email Us
+            </p>
+            <p className="text-[10px] font-medium text-foreground break-all">
+              hhconsulting@gmail.com
+            </p>
           </motion.a>
         </motion.div>
 
@@ -133,7 +159,9 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
           transition={{ delay: 0.4 }}
           className="space-y-3"
         >
-          <h2 className="font-heading text-lg font-semibold text-foreground">Our Offices</h2>
+          <h2 className="font-heading text-lg font-semibold text-foreground">
+            Our Offices
+          </h2>
           {officeLocations.map((office, index) => (
             <motion.div
               key={office.city}
@@ -147,8 +175,12 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary" />
                   <div>
-                    <p className="text-sm font-semibold text-foreground">{office.city}</p>
-                    <p className="text-[10px] text-muted-foreground">{office.country}</p>
+                    <p className="text-sm font-semibold text-foreground">
+                      {office.city}
+                    </p>
+                    <p className="text-[10px] text-muted-foreground">
+                      {office.country}
+                    </p>
                   </div>
                 </div>
                 {office.isHQ && (
@@ -157,7 +189,9 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
                   </span>
                 )}
               </div>
-              <p className="text-xs text-muted-foreground mb-2">{office.address}</p>
+              <p className="text-xs text-muted-foreground mb-2">
+                {office.address}
+              </p>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <Phone className="w-3 h-3" />
@@ -177,16 +211,22 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
         >
           <div className="flex items-center gap-2 mb-3">
             <Clock className="w-4 h-4 text-primary" />
-            <h3 className="text-sm font-semibold text-foreground">Business Hours</h3>
+            <h3 className="text-sm font-semibold text-foreground">
+              Business Hours
+            </h3>
           </div>
           <div className="space-y-1.5 text-xs">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Monday - Friday</span>
-              <span className="text-foreground font-medium">8:30 AM - 5:30 PM</span>
+              <span className="text-foreground font-medium">
+                8:30 AM - 5:30 PM
+              </span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Saturday</span>
-              <span className="text-foreground font-medium">9:00 AM - 1:00 PM</span>
+              <span className="text-foreground font-medium">
+                9:00 AM - 1:00 PM
+              </span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Sunday</span>
@@ -202,8 +242,10 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
           transition={{ delay: 0.7 }}
           className="space-y-4 pb-8"
         >
-          <h2 className="font-heading text-lg font-semibold text-foreground">Send a Message</h2>
-          
+          <h2 className="font-heading text-lg font-semibold text-foreground">
+            Send a Message
+          </h2>
+
           {isSubmitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -211,8 +253,12 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
               className="bg-green-500/10 border border-green-500/20 rounded-xl p-6 flex flex-col items-center text-center"
             >
               <CheckCircle className="w-12 h-12 text-green-500 mb-3" />
-              <p className="text-sm font-semibold text-foreground">Message Sent!</p>
-              <p className="text-xs text-muted-foreground">We&apos;ll get back to you shortly.</p>
+              <p className="text-sm font-semibold text-foreground">
+                Message Sent!
+              </p>
+              <p className="text-xs text-muted-foreground">
+                We&apos;ll get back to you shortly.
+              </p>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3">
@@ -221,40 +267,48 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
                   type="text"
                   placeholder="Your Name"
                   value={formState.name}
-                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, name: e.target.value })
+                  }
                   required
                   className="w-full px-4 py-3 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                 />
               </motion.div>
-              
+
               <motion.div whileFocus={{ scale: 1.01 }}>
                 <input
                   type="email"
                   placeholder="Email Address"
                   value={formState.email}
-                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, email: e.target.value })
+                  }
                   required
                   className="w-full px-4 py-3 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                 />
               </motion.div>
-              
+
               <motion.div whileFocus={{ scale: 1.01 }}>
                 <input
                   type="text"
                   placeholder="Subject"
                   value={formState.subject}
-                  onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, subject: e.target.value })
+                  }
                   required
                   className="w-full px-4 py-3 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                 />
               </motion.div>
-              
+
               <motion.div whileFocus={{ scale: 1.01 }}>
                 <textarea
                   placeholder="Your Message"
                   rows={4}
                   value={formState.message}
-                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, message: e.target.value })
+                  }
                   required
                   className="w-full px-4 py-3 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
                 />
@@ -274,5 +328,5 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
         </motion.div>
       </div>
     </motion.div>
-  )
+  );
 }
