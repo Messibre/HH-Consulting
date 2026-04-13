@@ -140,7 +140,7 @@ export function HeroSection({
             onClick={onContact}
             size="sm"
             variant="outline"
-            className="border-white/50 text-primary-foreground hover:bg-white/10 dark:border-foreground/30 dark:text-foreground dark:hover:bg-foreground/10 font-medium tracking-wide px-4 rounded-full text-xs"
+            className="border-white/50 text-yellow-500 hover:bg-white/10 dark:border-foreground/30 dark:text-foreground dark:hover:bg-foreground/10 font-medium tracking-wide px-4 rounded-full text-xs"
           >
             Consult Us
           </Button>
