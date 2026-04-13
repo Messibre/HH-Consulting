@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Menu } from "lucide-react"
 import Image from "next/image"
+import { ThemeToggle } from "./theme-toggle"
 
 interface Category {
   id: string
@@ -71,6 +72,7 @@ export function CategoriesWall({ onSelectCategory, onBack, onMenuOpen }: Categor
         <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
           <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
         </div>
+        <ThemeToggle />
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

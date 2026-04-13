@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import { ThemeToggle } from "./theme-toggle"
 
 interface ContentItem {
   id: string
@@ -536,12 +537,15 @@ export function ContentWalls({ categoryId, categoryName, onBack }: ContentWallsP
           {categoryName}
         </motion.p>
         
-        <motion.div 
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          className="flex h-6 w-6 items-center justify-center rounded bg-primary overflow-hidden"
-        >
-          <Image src="/images/hh-logo.jpg" alt="HH" width={24} height={24} className="object-cover" />
-        </motion.div>
+        <div className="flex items-center gap-2">
+          <motion.div 
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            className="flex h-6 w-6 items-center justify-center rounded bg-primary overflow-hidden"
+          >
+            <Image src="/images/hh-logo.jpg" alt="HH" width={24} height={24} className="object-cover" />
+          </motion.div>
+          <ThemeToggle />
+        </div>
       </motion.div>
 
       {/* Main Content - Two Walls Side by Side */}

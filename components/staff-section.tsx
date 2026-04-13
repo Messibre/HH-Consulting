@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { ArrowLeft, Mail, Phone, Linkedin, X, ChevronDown } from "lucide-react"
+import { ThemeToggle } from "./theme-toggle"
 
 interface StaffSectionProps {
   onBack: () => void
@@ -110,8 +111,11 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           <span className="text-xs tracking-wider uppercase">Back</span>
         </motion.button>
         
-        <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
-          <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
+            <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+          </div>
+          <ThemeToggle />
         </div>
       </div>
 

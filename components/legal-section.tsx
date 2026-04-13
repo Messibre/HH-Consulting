@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ChevronLeft, Shield, FileText, AlertCircle } from "lucide-react"
 import Image from "next/image"
+import { ThemeToggle } from "./theme-toggle"
 
 interface LegalProps {
   type: "privacy" | "terms" | "disclaimer"
@@ -115,8 +116,11 @@ export function LegalSection({ type, onBack }: LegalProps) {
           <ChevronLeft className="w-5 h-5" />
           <span className="text-xs tracking-wider">BACK</span>
         </motion.button>
-        <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
-          <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
+            <Image src="/images/hh-logo.jpg" alt="HH" width={32} height={32} className="object-cover" />
+          </div>
+          <ThemeToggle />
         </div>
       </div>
 

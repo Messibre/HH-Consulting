@@ -15,7 +15,6 @@ import { CredentialsSection } from "@/components/credentials-section";
 import { FAQSection } from "@/components/faq-section";
 import { ProcessSection } from "@/components/process-section";
 import { LegalSection } from "@/components/legal-section";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 type View =
   | "hero"
@@ -167,11 +166,6 @@ export default function Home() {
         onClose={() => setIsSidebarOpen(false)}
         onNavigate={handleNavigate}
       />
-
-      {/* Global Theme Toggle */}
-      <div className="fixed bottom-6 right-6 z-30">
-        <ThemeToggle />
-      </div>
     </main>
   );
 }
