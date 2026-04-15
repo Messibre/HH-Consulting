@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ArrowLeft, Mail, Phone, Linkedin, X, ChevronDown } from "lucide-react";
+import { ArrowLeft, Mail, Phone, Linkedin, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
+import staffData from "../staff.json";
 
 interface StaffSectionProps {
   onBack: () => void;
@@ -20,97 +21,205 @@ interface TeamMember {
   specialization: string[];
   initials: string;
   bio: string;
+  image: string | null;
+  phone?: string;
+  isLeadership: boolean;
 }
 
-const leadership: TeamMember[] = [
-  {
-    id: "1",
-    name: "Hailemichael Solomon",
-    title: "General Manager",
-    department: "Executive",
-    experience: "30+ years",
-    education: "MSc Civil Engineering",
-    specialization: [
-      "Strategic Planning",
-      "Project Management",
-      "Structural Design",
-    ],
-    initials: "HS",
-    bio: "Founder and General Manager of HH Consulting with over three decades of experience in leading major infrastructure projects across Ethiopia and East Africa.",
-  },
-  {
-    id: "2",
-    name: "Feven Girma",
-    title: "Deputy General Manager",
-    department: "Executive",
-    experience: "20+ years",
-    education: "M.Arch, Architecture",
-    specialization: [
-      "Operations Management",
-      "Design Review",
-      "Quality Control",
-    ],
-    initials: "FG",
-    bio: "Deputy General Manager overseeing daily operations and ensuring excellence in all project deliverables.",
-  },
-  {
-    id: "3",
-    name: "Yitbarek Tekle",
-    title: "Human Resource Department",
-    department: "Administration",
-    experience: "15+ years",
-    education: "MBA, Human Resources",
-    specialization: [
-      "HR Management",
-      "Talent Development",
-      "Organizational Culture",
-    ],
-    initials: "YT",
-    bio: "Leading the HR department with focus on building and nurturing a world-class engineering team.",
-  },
-  {
-    id: "4",
-    name: "Dibora Mesfin",
-    title: "Bid Department Head",
-    department: "Business Development",
-    experience: "12+ years",
-    education: "BSc Civil Engineering",
-    specialization: [
-      "Tender Management",
-      "Contract Negotiation",
-      "Cost Estimation",
-    ],
-    initials: "DM",
-    bio: "Head of Bid Department responsible for securing major projects through competitive tendering.",
-  },
-  {
-    id: "5",
-    name: "Hailegiorgis Solomon",
-    title: "IT Department Head",
-    department: "Technology",
-    experience: "10+ years",
-    education: "MSc Information Technology",
-    specialization: [
-      "BIM Implementation",
-      "Digital Infrastructure",
-      "CAD Systems",
-    ],
-    initials: "HS",
-    bio: "Leading digital transformation initiatives and maintaining cutting-edge technology infrastructure.",
-  },
+type JsonLeadership = {
+  id: string;
+  name: string;
+  position: string;
+  department: string;
+  role: string;
+  responsibilities?: string[];
+  experience?: string;
+  expertise?: string[];
+  education?: string;
+  initials?: string;
+  contact?: { phone?: string };
+};
+
+type JsonSupport = {
+  id: string;
+  name: string;
+  position: string;
+  department: string;
+  role: string;
+  responsibilities?: string[];
+  initials?: string;
+};
+
+type JsonDepartment = {
+  id: string;
+  name: string;
+  headCount: number;
+};
+
+type JsonStaffData = {
+  statistics: {
+    totalPermanentStaff: number;
+  };
+  leadership: JsonLeadership[];
+  supportStaff: JsonSupport[];
+  departments: JsonDepartment[];
+  softwareTools?: Array<{ name: string }>;
+};
+
+const staffImageByName: Record<string, string> = {
+  "Hailemichael Solomon": "/images/hailemichael-solomon.jpg",
+  "Feven Girma": "/images/feven-girma.jpg",
+  "Yitbarek Tekle": "/images/yitbarek-tekle.jpg",
+  "Dibora Mesfin": "/images/dibora-mesfin.jpg",
+  "Hailegiorgis Solomon": "/images/hailegiyorgis-solomon.jpg",
+  Helen: "/images/helen-receptionist.jpg",
+};
+
+const staffGalleryImages = [
+  "/images/staff-1.jpg",
+  "/images/staff-2.jpg",
+  "/images/staff-3.jpg",
+  "/images/staff-4.jpg",
+  "/images/staff-5.jpg",
+  "/images/staff-6.jpg",
+  "/images/staff-7.jpg",
+  "/images/staff-8.jpg",
+  "/images/staff-9.jpg",
+  "/images/staff-10.jpg",
 ];
 
-const departments = [
-  { name: "Architecture", count: 45, color: "bg-amber-500" },
-  { name: "Structural", count: 38, color: "bg-blue-500" },
-  { name: "MEP", count: 32, color: "bg-green-500" },
-  { name: "Project Management", count: 25, color: "bg-purple-500" },
-  { name: "Admin & Support", count: 60, color: "bg-slate-500" },
+const typedStaff = staffData as JsonStaffData;
+
+function joinShort(items: string[] | undefined, fallback: string) {
+  if (!items || items.length === 0) return fallback;
+  return items.slice(0, 3).join(", ");
+}
+
+function mapLeadershipToMember(member: JsonLeadership): TeamMember {
+  const summary =
+    member.responsibilities?.[0] ?? `${member.role} at HH Consulting.`;
+  return {
+    id: member.id,
+    name: member.name,
+    title: member.position,
+    department: member.department,
+    experience: member.experience || "Experience not listed",
+    education: member.education || "Education details available on request",
+    specialization: member.expertise?.slice(0, 4) || [
+      "Professional leadership",
+    ],
+    initials:
+      member.initials ||
+      member.name
+        .split(" ")
+        .map((part) => part[0])
+        .slice(0, 2)
+        .join(""),
+    bio: summary,
+    image: staffImageByName[member.name] || null,
+    phone: member.contact?.phone,
+    isLeadership: true,
+  };
+}
+
+function mapSupportToMember(member: JsonSupport): TeamMember {
+  return {
+    id: member.id,
+    name: member.name,
+    title: member.position,
+    department: member.department,
+    experience: "Support team",
+    education: "Internal training and administrative operations",
+    specialization: member.responsibilities?.slice(0, 3) || [
+      "Administrative support",
+    ],
+    initials:
+      member.initials ||
+      member.name
+        .split(" ")
+        .map((part) => part[0])
+        .slice(0, 2)
+        .join(""),
+    bio: `${member.role}. ${joinShort(member.responsibilities, "Supports daily company operations.")}.`,
+    image: staffImageByName[member.name] || null,
+    isLeadership: false,
+  };
+}
+
+const leadership = typedStaff.leadership.map(mapLeadershipToMember);
+const supportTeam = typedStaff.supportStaff.map(mapSupportToMember);
+
+const departmentColors = [
+  "bg-amber-500",
+  "bg-blue-500",
+  "bg-green-500",
+  "bg-purple-500",
+  "bg-slate-500",
+  "bg-rose-500",
+  "bg-cyan-500",
+  "bg-indigo-500",
 ];
+
+const departments = typedStaff.departments
+  .slice()
+  .sort((a, b) => b.headCount - a.headCount)
+  .slice(0, 5)
+  .map((dept, index) => ({
+    name: dept.name,
+    count: dept.headCount,
+    color: departmentColors[index % departmentColors.length],
+  }));
+
+function StaffAvatar({
+  member,
+  className,
+  initialsClassName,
+}: {
+  member: TeamMember;
+  className: string;
+  initialsClassName?: string;
+}) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const imageSrc = member.image;
+  const showImage = Boolean(imageSrc) && !imageFailed;
+
+  if (showImage) {
+    return (
+      <div className={`${className} overflow-hidden bg-secondary`}>
+        <Image
+          src={imageSrc as string}
+          alt={member.name}
+          width={160}
+          height={160}
+          className="h-full w-full object-cover"
+          onError={() => setImageFailed(true)}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`${className} bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center`}
+    >
+      <span
+        className={`font-heading font-bold text-primary-foreground ${initialsClassName || "text-lg"}`}
+      >
+        {member.initials}
+      </span>
+    </div>
+  );
+}
 
 export function StaffSection({ onBack }: StaffSectionProps) {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-  const [expandedDept, setExpandedDept] = useState<string | null>(null);
+  const maxDepartmentCount = Math.max(
+    ...departments.map((dept) => dept.count),
+    1,
+  );
+  const skills = typedStaff.softwareTools
+    ?.slice(0, 10)
+    .map((tool) => tool.name) || ["AutoCAD", "Revit", "ETABS", "SAP2000"];
 
   return (
     <motion.div
@@ -183,7 +292,9 @@ export function StaffSection({ onBack }: StaffSectionProps) {
             <h2 className="font-heading text-lg font-semibold text-foreground">
               Our Workforce
             </h2>
-            <span className="text-2xl font-bold text-primary">200+</span>
+            <span className="text-2xl font-bold text-primary">
+              {typedStaff.statistics.totalPermanentStaff}+
+            </span>
           </div>
           <div className="space-y-3">
             {departments.map((dept, index) => (
@@ -204,7 +315,9 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                 <div className="h-2 bg-secondary rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
-                    animate={{ width: `${(dept.count / 60) * 100}%` }}
+                    animate={{
+                      width: `${(dept.count / maxDepartmentCount) * 100}%`,
+                    }}
                     transition={{
                       delay: 0.5 + index * 0.1,
                       duration: 0.8,
@@ -243,11 +356,13 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                 {/* Avatar */}
                 <motion.div
                   whileHover={{ rotate: 5 }}
-                  className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center flex-shrink-0"
+                  className="flex-shrink-0"
                 >
-                  <span className="font-heading text-lg font-bold text-primary-foreground">
-                    {member.initials}
-                  </span>
+                  <StaffAvatar
+                    member={member}
+                    className="w-24 h-14 rounded-xl"
+                    initialsClassName="text-base"
+                  />
                 </motion.div>
 
                 {/* Info */}
@@ -284,29 +399,91 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           </div>
         </motion.div>
 
+        {/* Support Team */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.85 }}
+          className="space-y-4"
+        >
+          <h2 className="font-heading text-lg font-semibold text-foreground">
+            Support Team
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {supportTeam.map((member, index) => (
+              <motion.button
+                key={member.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 + index * 0.08 }}
+                whileHover={{ scale: 1.01, y: -2 }}
+                whileTap={{ scale: 0.99 }}
+                onClick={() => setSelectedMember(member)}
+                className="w-full bg-card border border-border rounded-xl p-3 flex items-center gap-3 text-left"
+              >
+                <StaffAvatar
+                  member={member}
+                  className="w-16 h-11 rounded-lg flex-shrink-0"
+                  initialsClassName="text-sm"
+                />
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-foreground truncate">
+                    {member.name}
+                  </p>
+                  <p className="text-[11px] text-primary truncate">
+                    {member.title}
+                  </p>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Team Moments */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.95 }}
+          className="space-y-4"
+        >
+          <h2 className="font-heading text-lg font-semibold text-foreground">
+            Team Moments
+          </h2>
+          <div className="-mx-5 px-5 overflow-x-auto pb-2">
+            <div className="flex gap-3 w-max">
+              {staffGalleryImages.map((src, index) => (
+                <motion.div
+                  key={src}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1 + index * 0.04 }}
+                  className="relative w-52 h-32 rounded-xl overflow-hidden border border-border bg-card shadow-sm"
+                >
+                  <Image
+                    src={src}
+                    alt={`Staff group ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="208px"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         {/* Expertise Areas */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
+          transition={{ delay: 1.05 }}
           className="space-y-4 pb-8"
         >
           <h2 className="font-heading text-lg font-semibold text-foreground">
             Technical Expertise
           </h2>
           <div className="flex flex-wrap gap-2">
-            {[
-              "AutoCAD",
-              "Revit",
-              "SketchUp",
-              "ETABS",
-              "SAP2000",
-              "Primavera",
-              "MS Project",
-              "Rhino",
-              "Lumion",
-              "ArchiCAD",
-            ].map((skill, index) => (
+            {skills.map((skill, index) => (
               <motion.span
                 key={skill}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -359,11 +536,11 @@ export function StaffSection({ onBack }: StaffSectionProps) {
               <div className="px-6 pb-8">
                 {/* Avatar & Name */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
-                    <span className="font-heading text-2xl font-bold text-primary-foreground">
-                      {selectedMember.initials}
-                    </span>
-                  </div>
+                  <StaffAvatar
+                    member={selectedMember}
+                    className="w-28 h-20 rounded-2xl"
+                    initialsClassName="text-xl"
+                  />
                   <div>
                     <h3 className="font-heading text-lg font-bold text-foreground">
                       {selectedMember.name}
@@ -372,7 +549,7 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                       {selectedMember.title}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {selectedMember.department} Department
+                      {selectedMember.department}
                     </p>
                   </div>
                 </div>
@@ -446,14 +623,26 @@ export function StaffSection({ onBack }: StaffSectionProps) {
 
                 {/* Contact Actions */}
                 <div className="flex gap-3 mt-6">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-secondary rounded-xl text-sm text-foreground"
-                  >
-                    <Mail className="w-4 h-4" />
-                    <span>Email</span>
-                  </motion.button>
+                  {selectedMember.phone ? (
+                    <motion.a
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      href={`tel:${selectedMember.phone}`}
+                      className="flex-1 flex items-center justify-center gap-2 py-3 bg-secondary rounded-xl text-sm text-foreground"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>Call</span>
+                    </motion.a>
+                  ) : (
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 flex items-center justify-center gap-2 py-3 bg-secondary rounded-xl text-sm text-foreground"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>Email</span>
+                    </motion.button>
+                  )}
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

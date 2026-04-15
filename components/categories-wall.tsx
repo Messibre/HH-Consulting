@@ -58,6 +58,11 @@ const categories: Category[] = [
     name: "FEASIBILITY STUDY",
     position: { top: "78%", left: "45%" },
   },
+  {
+    id: "environmental-assessment",
+    name: "ENVIRONMENTAL ASSESSMENT",
+    position: { top: "86%", left: "8%" },
+  },
 ];
 
 interface CategoriesWallProps {

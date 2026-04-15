@@ -1,0 +1,571 @@
+{
+  "company": {
+    "name": "HH Consulting Architects & Engineers PLC",
+    "slogan": "We create with heart, and build with mind",
+    "tagline": "Worldwide Consulting. Engineered Excellence.",
+    "description": "For any international projects, we are your dedicated global partner in design and construction supervision."
+  },
+  "statistics": {
+    "totalPermanentStaff": 200,
+    "typicalProjectStaff": 9,
+    "maxProjectStaff": 91,
+    "departments": 7,
+    "leadershipTeam": 7,
+    "supportStaff": 2
+  },
+  "leadership": [
+    {
+      "id": "LS001",
+      "name": "Hailemichael Solomon",
+      "position": "General Manager",
+      "department": "Executive Management",
+      "role": "Founder & CEO",
+      "responsibilities": [
+        "Overall company leadership and strategy",
+        "Business development and client relations",
+        "Major project oversight",
+        "Corporate governance"
+      ],
+      "experience": "30+ years",
+      "expertise": [
+        "Strategic Planning",
+        "Project Management",
+        "Business Development",
+        "Client Relations"
+      ],
+      "education": "MSc Civil Engineering",
+      "initials": "HS",
+      "isFounder": true,
+      "contact": {
+        "phone": "+251 911228253"
+      }
+    },
+    {
+      "id": "LS002",
+      "name": "Feven Girma",
+      "position": "Deputy General Manager",
+      "department": "Executive Management",
+      "role": "Operations Lead",
+      "responsibilities": [
+        "Daily operations management",
+        "Design review and quality assurance",
+        "Staff coordination",
+        "Process optimization"
+      ],
+      "experience": "20+ years",
+      "expertise": [
+        "Operations Management",
+        "Design Review",
+        "Quality Control",
+        "Team Leadership"
+      ],
+      "education": "M.Arch Architecture",
+      "initials": "FG",
+      "isFounder": false
+    },
+    {
+      "id": "LS003",
+      "name": "Yitbarek Tekle",
+      "position": "Human Resource Department Head",
+      "department": "Human Resources",
+      "role": "HR Director",
+      "responsibilities": [
+        "Recruitment and talent acquisition",
+        "Employee development and training",
+        "Performance management",
+        "Organizational culture"
+      ],
+      "experience": "15+ years",
+      "expertise": [
+        "HR Management",
+        "Talent Development",
+        "Organizational Culture",
+        "Employee Relations"
+      ],
+      "education": "MBA Human Resources",
+      "initials": "YT",
+      "isFounder": false
+    },
+    {
+      "id": "LS004",
+      "name": "Dibora Mesfin",
+      "position": "Bid Department Head",
+      "department": "Business Development",
+      "role": "Tender Manager",
+      "responsibilities": [
+        "Tender preparation and submission",
+        "Cost estimation",
+        "Contract negotiation",
+        "Proposal development"
+      ],
+      "experience": "12+ years",
+      "expertise": [
+        "Tender Management",
+        "Contract Negotiation",
+        "Cost Estimation",
+        "Proposal Writing"
+      ],
+      "education": "BSc Civil Engineering",
+      "initials": "DM",
+      "isFounder": false
+    },
+    {
+      "id": "LS005",
+      "name": "Hailegiorgis Solomon",
+      "position": "IT Department Head",
+      "department": "Information Technology",
+      "role": "Technology Director",
+      "responsibilities": [
+        "IT infrastructure management",
+        "BIM implementation",
+        "Digital transformation",
+        "CAD systems administration"
+      ],
+      "experience": "10+ years",
+      "expertise": [
+        "BIM Implementation",
+        "Digital Infrastructure",
+        "CAD Systems",
+        "IT Management"
+      ],
+      "education": "MSc Information Technology",
+      "initials": "HS",
+      "isFounder": false
+    }
+  ],
+  "supportStaff": [
+    {
+      "id": "SS001",
+      "name": "Helen",
+      "position": "Receptionist",
+      "department": "Administration",
+      "role": "Front Desk",
+      "responsibilities": [
+        "Reception and visitor management",
+        "Phone handling",
+        "Administrative support"
+      ],
+      "initials": "H"
+    },
+    {
+      "id": "SS002",
+      "name": "Mekdes Gebru",
+      "position": "Receptionist",
+      "department": "Administration",
+      "role": "Front Desk",
+      "responsibilities": [
+        "Reception and visitor management",
+        "Phone handling",
+        "Administrative support"
+      ],
+      "initials": "MG"
+    }
+  ],
+  "departments": [
+    {
+      "id": "DEPT001",
+      "name": "Executive Management",
+      "description": "Overall company leadership, strategy, and governance",
+      "headCount": 2,
+      "keyRoles": ["General Manager", "Deputy General Manager"]
+    },
+    {
+      "id": "DEPT002",
+      "name": "Design Department",
+      "description": "Architectural and engineering design services",
+      "headCount": 50,
+      "keyRoles": ["Architects", "CAD Experts", "Design Engineers", "Draftsmen"]
+    },
+    {
+      "id": "DEPT003",
+      "name": "Supervision & Contract Administration (SCAD)",
+      "description": "Construction supervision and contract management",
+      "headCount": 40,
+      "keyRoles": [
+        "Resident Engineers",
+        "Site Engineers",
+        "Contract Administrators",
+        "Quality Controllers"
+      ]
+    },
+    {
+      "id": "DEPT004",
+      "name": "Human Resources",
+      "description": "HR management, recruitment, and employee development",
+      "headCount": 5,
+      "keyRoles": ["HR Manager", "HR Officers", "Training Coordinators"]
+    },
+    {
+      "id": "DEPT005",
+      "name": "Bid Department",
+      "description": "Tender preparation, cost estimation, and business development",
+      "headCount": 8,
+      "keyRoles": ["Bid Manager", "Estimators", "Proposal Writers"]
+    },
+    {
+      "id": "DEPT006",
+      "name": "IT Department",
+      "description": "Technology infrastructure, BIM, and digital systems",
+      "headCount": 6,
+      "keyRoles": [
+        "IT Manager",
+        "BIM Specialists",
+        "CAD Administrators",
+        "System Administrators"
+      ]
+    },
+    {
+      "id": "DEPT007",
+      "name": "Payment Department",
+      "description": "Financial management and payment processing",
+      "headCount": 5,
+      "keyRoles": ["Finance Manager", "Accountants", "Payment Officers"]
+    },
+    {
+      "id": "DEPT008",
+      "name": "Administration",
+      "description": "General administrative support and office management",
+      "headCount": 4,
+      "keyRoles": [
+        "Office Manager",
+        "Receptionists",
+        "Administrative Assistants"
+      ]
+    }
+  ],
+  "professionalStaffTypes": [
+    {
+      "type": "Architects",
+      "description": "Licensed architects for building and infrastructure design",
+      "count": 25,
+      "qualifications": ["B.Arch", "M.Arch", "Licensed Architect"]
+    },
+    {
+      "type": "Structural Engineers",
+      "description": "Engineers specializing in structural analysis and design",
+      "count": 20,
+      "qualifications": [
+        "BSc/MSc Civil Engineering",
+        "Structural Engineering Certification"
+      ]
+    },
+    {
+      "type": "Mechanical Engineers",
+      "description": "HVAC, plumbing, and mechanical systems specialists",
+      "count": 12,
+      "qualifications": ["BSc/MSc Mechanical Engineering"]
+    },
+    {
+      "type": "Electrical Engineers",
+      "description": "Electrical systems and power distribution specialists",
+      "count": 12,
+      "qualifications": ["BSc/MSc Electrical Engineering"]
+    },
+    {
+      "type": "Sanitary Engineers",
+      "description": "Water supply and sanitation systems specialists",
+      "count": 8,
+      "qualifications": ["BSc Civil/Sanitary Engineering"]
+    },
+    {
+      "type": "Highway Engineers",
+      "description": "Road and highway design and construction specialists",
+      "count": 10,
+      "qualifications": [
+        "BSc/MSc Civil Engineering",
+        "Highway Engineering Certification"
+      ]
+    },
+    {
+      "type": "Hydraulics Engineers",
+      "description": "Irrigation and water resource engineering specialists",
+      "count": 8,
+      "qualifications": ["BSc/MSc Hydraulics/Civil Engineering"]
+    },
+    {
+      "type": "Contract Administrators",
+      "description": "Contract management and administration specialists",
+      "count": 15,
+      "qualifications": ["BSc Engineering", "Contract Management Certification"]
+    },
+    {
+      "type": "Resident Engineers",
+      "description": "On-site project supervision and quality control",
+      "count": 20,
+      "qualifications": ["BSc Civil Engineering", "5+ years experience"]
+    },
+    {
+      "type": "Project Managers",
+      "description": "Overall project coordination and management",
+      "count": 10,
+      "qualifications": ["BSc/MSc Engineering", "PMP Certification"]
+    },
+    {
+      "type": "Site Engineers",
+      "description": "On-site construction supervision",
+      "count": 25,
+      "qualifications": ["BSc Civil Engineering"]
+    },
+    {
+      "type": "Quantity Surveyors",
+      "description": "Cost estimation and quantity take-off specialists",
+      "count": 10,
+      "qualifications": ["BSc Quantity Surveying/Civil Engineering"]
+    },
+    {
+      "type": "Surveyors",
+      "description": "Topographic and land surveying specialists",
+      "count": 8,
+      "qualifications": ["BSc Surveying/Geomatics"]
+    },
+    {
+      "type": "CAD Experts",
+      "description": "Computer-aided design and drafting specialists",
+      "count": 15,
+      "qualifications": [
+        "Diploma/BSc",
+        "AutoCAD Certification",
+        "Revit Certification"
+      ]
+    },
+    {
+      "type": "Office Engineers",
+      "description": "Documentation and office engineering support",
+      "count": 12,
+      "qualifications": ["BSc Engineering"]
+    },
+    {
+      "type": "Foremen",
+      "description": "Construction site supervision and crew management",
+      "count": 10,
+      "qualifications": ["Diploma/BSc", "Construction Experience"]
+    }
+  ],
+  "projectTeamConfigurations": [
+    {
+      "projectType": "Small Building Design",
+      "typicalStaffCount": 9,
+      "staffComposition": [
+        { "role": "Architects", "count": 2 },
+        { "role": "Structural Engineers", "count": 1 },
+        { "role": "MEP Engineers", "count": 2 },
+        { "role": "CAD Experts", "count": 3 },
+        { "role": "Project Manager", "count": 1 }
+      ],
+      "duration": "1-3 months"
+    },
+    {
+      "projectType": "Large Building Design",
+      "typicalStaffCount": 13,
+      "staffComposition": [
+        { "role": "Architects", "count": 3 },
+        { "role": "Structural Engineers", "count": 2 },
+        { "role": "Mechanical Engineers", "count": 2 },
+        { "role": "Electrical Engineers", "count": 2 },
+        { "role": "Sanitary Engineers", "count": 1 },
+        { "role": "CAD Experts", "count": 2 },
+        { "role": "Project Manager", "count": 1 }
+      ],
+      "duration": "3-6 months"
+    },
+    {
+      "projectType": "Airport/Terminal Design",
+      "typicalStaffCount": 81,
+      "staffComposition": [
+        { "role": "Architects", "count": 8 },
+        { "role": "Project Manager", "count": 1 },
+        { "role": "Resident Engineer", "count": 5 },
+        { "role": "Structural Engineers", "count": 8 },
+        { "role": "Mechanical Engineers", "count": 6 },
+        { "role": "Electrical Engineers", "count": 6 },
+        { "role": "Sanitary Engineers", "count": 4 },
+        { "role": "Highway Engineers", "count": 4 },
+        { "role": "Contract Administrators", "count": 5 },
+        { "role": "Site Engineers", "count": 15 },
+        { "role": "Office Engineers", "count": 8 },
+        { "role": "Surveyors", "count": 4 },
+        { "role": "CAD Experts", "count": 5 },
+        { "role": "Foremen", "count": 2 }
+      ],
+      "duration": "4-12 months"
+    },
+    {
+      "projectType": "Infrastructure/University",
+      "typicalStaffCount": 54,
+      "staffComposition": [
+        { "role": "Architects", "count": 6 },
+        { "role": "Resident Engineers", "count": 4 },
+        { "role": "Structural Engineers", "count": 6 },
+        { "role": "Mechanical Engineers", "count": 4 },
+        { "role": "Electrical Engineers", "count": 4 },
+        { "role": "Sanitary Engineers", "count": 3 },
+        { "role": "Contract Administrators", "count": 4 },
+        { "role": "Site Engineers", "count": 10 },
+        { "role": "Office Engineers", "count": 5 },
+        { "role": "Quantity Surveyors", "count": 3 },
+        { "role": "CAD Experts", "count": 3 },
+        { "role": "Foremen", "count": 2 }
+      ],
+      "duration": "6-18 months"
+    },
+    {
+      "projectType": "Road/Bridge Construction",
+      "typicalStaffCount": 15,
+      "staffComposition": [
+        { "role": "Project Manager", "count": 1 },
+        { "role": "Highway Engineers", "count": 3 },
+        { "role": "Site Engineers", "count": 4 },
+        { "role": "Surveyors", "count": 2 },
+        { "role": "Contract Engineers", "count": 2 },
+        { "role": "Office Engineers", "count": 2 },
+        { "role": "Foremen", "count": 1 }
+      ],
+      "duration": "4-12 months"
+    },
+    {
+      "projectType": "Irrigation Projects",
+      "typicalStaffCount": 12,
+      "staffComposition": [
+        { "role": "Hydraulics Engineers", "count": 3 },
+        { "role": "Project Manager", "count": 1 },
+        { "role": "Site Engineers", "count": 3 },
+        { "role": "Surveyors", "count": 2 },
+        { "role": "Contract Engineers", "count": 1 },
+        { "role": "Office Engineers", "count": 1 },
+        { "role": "CAD Experts", "count": 1 }
+      ],
+      "duration": "3-8 months"
+    }
+  ],
+  "expertise": {
+    "architecturalEngineering": [
+      "Architectural Design",
+      "Structural Engineering",
+      "Electrical and Mechanical Systems Design",
+      "Sanitary and Plumbing Systems"
+    ],
+    "urbanEnvironmental": [
+      "Urban and Regional Master Plans",
+      "Environmental Impact Assessments (EIA)",
+      "Landscape Architecture and Design",
+      "Topographic Surveys"
+    ],
+    "feasibilityPlanning": [
+      "Feasibility Studies for Public and Private Projects",
+      "Strategic Planning and Site Analysis",
+      "Concept Development and Cost Estimations"
+    ],
+    "constructionSupervision": [
+      "Contract Administration",
+      "Quality Control and Assurance",
+      "Site Supervision",
+      "Project Scheduling and Monitoring"
+    ],
+    "infrastructureCivil": [
+      "Road and Highway Design",
+      "Bridge and Transportation Structures",
+      "Irrigation and Water Resource Engineering",
+      "Infrastructure Master Planning"
+    ]
+  },
+  "softwareTools": [
+    {
+      "name": "AutoCAD",
+      "category": "2D/3D Design",
+      "proficiency": "Expert",
+      "usedBy": ["Architects", "CAD Experts", "Engineers"]
+    },
+    {
+      "name": "Revit",
+      "category": "BIM",
+      "proficiency": "Expert",
+      "usedBy": ["Architects", "Engineers", "CAD Experts"]
+    },
+    {
+      "name": "ETABS",
+      "category": "Structural Analysis",
+      "proficiency": "Expert",
+      "usedBy": ["Structural Engineers"]
+    },
+    {
+      "name": "SAP2000",
+      "category": "Structural Analysis",
+      "proficiency": "Expert",
+      "usedBy": ["Structural Engineers"]
+    },
+    {
+      "name": "SketchUp",
+      "category": "3D Modeling",
+      "proficiency": "Advanced",
+      "usedBy": ["Architects", "CAD Experts"]
+    },
+    {
+      "name": "Lumion",
+      "category": "Rendering",
+      "proficiency": "Advanced",
+      "usedBy": ["Architects", "CAD Experts"]
+    },
+    {
+      "name": "Civil 3D",
+      "category": "Infrastructure",
+      "proficiency": "Expert",
+      "usedBy": ["Highway Engineers", "Surveyors"]
+    },
+    {
+      "name": "Primavera P6",
+      "category": "Project Management",
+      "proficiency": "Advanced",
+      "usedBy": ["Project Managers", "Contract Administrators"]
+    },
+    {
+      "name": "MS Project",
+      "category": "Project Management",
+      "proficiency": "Expert",
+      "usedBy": ["Project Managers", "Office Engineers"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Grade 1 Consulting License",
+      "issuedBy": "Ethiopian Construction Authority",
+      "scope": "Highest grade for architectural and engineering consulting",
+      "status": "Active"
+    },
+    {
+      "name": "Professional Engineering License",
+      "issuedBy": "Ethiopian Professional Association",
+      "scope": "Licensed to practice engineering in Ethiopia",
+      "status": "Active"
+    },
+    {
+      "name": "ISO 9001:2015",
+      "issuedBy": "ISO",
+      "scope": "Quality Management System",
+      "status": "Certified"
+    }
+  ],
+  "contact": {
+    "headquarters": {
+      "address": "22 Mazoriya, Efrata Building, 3rd Floor",
+      "city": "Addis Ababa",
+      "country": "Ethiopia",
+      "phones": [
+        "+251 11 868 3830",
+        "+251 11 667 2951",
+        "+251 91 359 2121",
+        "+251 91 122 8253",
+        "+251 96 693 5979"
+      ],
+      "emails": [
+        "hhconsultingarchitectengineers@gmail.com",
+        "haylah@yahoo.com"
+      ],
+      "website": "https://hhconsultinget.com"
+    },
+    "socialMedia": {
+      "facebook": "HH Consulting Architects & Engineers",
+      "linkedin": "HH Consulting Architects & Engineers PLC",
+      "instagram": "hh consulting"
+    }
+  }
+}

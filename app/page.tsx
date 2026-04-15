@@ -43,6 +43,7 @@ const categoryNames: Record<string, string> = {
   irrigations: "Irrigations",
   "bridge-design": "Bridge Design",
   "feasibility-study": "Feasibility Study",
+  "environmental-assessment": "Environmental Assessment",
 };
 
 export default function Home() {
