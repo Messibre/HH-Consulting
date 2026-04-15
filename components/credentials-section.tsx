@@ -52,6 +52,15 @@ const certifications = [
   },
 ];
 
+const certificateGalleryImages = [
+  "/images/certificate-1.jpg",
+  "/images/certificate-2.jpg",
+  "/images/certificate-3.jpg",
+  "/images/certificate-4.jpg",
+  "/images/certificate-5.jpg",
+  "/images/certificate-6.jpg",
+];
+
 const tools = [
   { name: "AutoCAD", category: "2D/3D Design" },
   { name: "Revit", category: "BIM" },
@@ -172,6 +181,39 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
             ))}
           </div>
         </div>
+
+        {/* Certificate Gallery */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+          className="mb-8"
+        >
+          <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">
+            Certificate Gallery
+          </p>
+          <div className="-mx-5 px-5 overflow-x-auto pb-2">
+            <div className="flex gap-3 w-max">
+              {certificateGalleryImages.map((src, idx) => (
+                <motion.div
+                  key={src}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 + idx * 0.05 }}
+                  className="relative w-56 h-36 overflow-hidden rounded-xl border border-border bg-card shadow-sm"
+                >
+                  <Image
+                    src={src}
+                    alt={`Certificate ${idx + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="224px"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
 
         {/* Software & Tools */}
         <motion.div

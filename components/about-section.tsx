@@ -32,6 +32,19 @@ const milestones = [
   },
 ];
 
+const services = [
+  "Building Design (Architectural, Structure, Electrical, Sanitary, Mechanical & Others)",
+  "Urban Design and Planning Works",
+  "Infrastructures",
+  "Terminal design",
+  "Road works",
+  "Irrigations",
+  "Feasibility study",
+  "Topography Survey",
+  "Landscape Design and Specification",
+  "Contract Administration and Supervision (Quality Control)",
+];
+
 export function AboutSection({ onBack }: AboutSectionProps) {
   return (
     <motion.div
@@ -69,7 +82,7 @@ export function AboutSection({ onBack }: AboutSectionProps) {
       {/* Hero Image */}
       <div className="relative h-48 overflow-hidden">
         <Image
-          src="/images/hero-building.jpg"
+          src="/images/dr ali bira guesthouse.jpg"
           alt="HH Consulting Office"
           fill
           className="object-cover"
@@ -215,22 +228,16 @@ export function AboutSection({ onBack }: AboutSectionProps) {
           className="space-y-4 pb-8"
         >
           <h2 className="font-heading text-lg font-semibold text-foreground">
-            Core Services
+            Our Services
           </h2>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              "Architectural Design",
-              "Structural Engineering",
-              "MEP Design",
-              "Urban Planning",
-              "Project Management",
-              "Construction Supervision",
-            ].map((service, index) => (
+          <div className="space-y-2">
+            {services.map((service, index) => (
               <motion.div
                 key={service}
-                whileHover={{ scale: 1.02, backgroundColor: "var(--primary)" }}
-                className="bg-secondary rounded-lg px-3 py-2.5 text-[11px] text-foreground font-medium transition-colors cursor-default"
+                whileHover={{ scale: 1.01, x: 2 }}
+                className="flex items-start gap-2 rounded-lg bg-secondary px-3 py-2.5 text-[11px] text-foreground font-medium transition-colors cursor-default"
               >
+                <span className="mt-[5px] h-1.5 w-1.5 flex-shrink-0 rounded-sm bg-primary" />
                 {service}
               </motion.div>
             ))}

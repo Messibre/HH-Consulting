@@ -16,27 +16,10 @@ interface VisionSectionProps {
   onBack: () => void;
 }
 
-const coreValues = [
-  {
-    icon: Lightbulb,
-    title: "Innovation",
-    description: "Pushing boundaries with creative solutions",
-  },
-  {
-    icon: Target,
-    title: "Excellence",
-    description: "Uncompromising quality in every project",
-  },
-  {
-    icon: Compass,
-    title: "Integrity",
-    description: "Ethical practices and transparent dealings",
-  },
-  {
-    icon: Sparkles,
-    title: "Sustainability",
-    description: "Building for future generations",
-  },
+const valueStatements = [
+  "Appropriate usage of time",
+  "Developing the behavioral qualities of a good entrepreneurship",
+  "Serving customers in kind",
 ];
 
 const goals = [
@@ -84,7 +67,7 @@ export function VisionSection({ onBack }: VisionSectionProps) {
       {/* Hero with Vision Statement */}
       <div className="relative h-56 overflow-hidden">
         <Image
-          src="/images/bridge-design.jpg"
+          src="/images/bule hora estadium.jpg"
           alt="Vision for the future"
           fill
           className="object-cover"
@@ -124,9 +107,11 @@ export function VisionSection({ onBack }: VisionSectionProps) {
               </h2>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed italic">
-              &ldquo;To be the most trusted and innovative architectural and
-              engineering consultancy in Africa, creating spaces that inspire,
-              endure, and contribute to sustainable development.&rdquo;
+              &ldquo;We strive to achieve innovative project management and
+              quality control solutions for the local construction industry. And
+              also we implement a proper contact administration and design
+              supervision methods by creating partnership and creative working
+              environment.&rdquo;
             </p>
           </div>
         </motion.div>
@@ -145,46 +130,39 @@ export function VisionSection({ onBack }: VisionSectionProps) {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            To deliver world-class design and engineering solutions that exceed
-            client expectations, foster innovation, embrace sustainability, and
-            contribute to the built environment of Ethiopia and beyond.
+            HH Consulting Architects and Engineers plc is driven by a passion
+            for automated project management solutions with architectural and
+            civil engineering services. Implements innovative ideas across
+            multiple services and lines of business to contribute towards
+            promoting efficient and economical project management and quality
+            control solutions.
           </p>
         </motion.div>
 
-        {/* Core Values */}
+        {/* Value */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           className="space-y-4"
         >
-          <h2 className="font-heading text-lg font-semibold text-foreground">
-            Core Values
-          </h2>
-          <div className="grid grid-cols-2 gap-3">
-            {coreValues.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 + index * 0.1 }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="bg-card border border-border rounded-xl p-4 group cursor-default"
-              >
-                <motion.div
-                  whileHover={{ rotate: 10, scale: 1.1 }}
-                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center mb-3 group-hover:bg-primary transition-colors"
-                >
-                  <value.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
-                </motion.div>
-                <h3 className="text-sm font-semibold text-foreground mb-1">
-                  {value.title}
-                </h3>
-                <p className="text-[10px] text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="flex items-start gap-2">
+            <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+            <div>
+              <h2 className="font-heading text-lg font-semibold text-foreground uppercase tracking-wide">
+                Value
+              </h2>
+              <div className="mt-3 space-y-2">
+                {valueStatements.map((statement, index) => (
+                  <p
+                    key={statement}
+                    className="text-sm text-muted-foreground leading-relaxed"
+                  >
+                    {index === 0 ? statement : `${statement}`}
+                  </p>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
 

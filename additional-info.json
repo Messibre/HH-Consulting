@@ -1,0 +1,199 @@
+{
+  "companyName": "HH CONSULTING ARCHITECTS & ENGINEERS PLC.",
+  "tagline": "WORLDWIDE CONSULTING. ENGINEERED EXCELLENCE.",
+  "slogan": "For any international projects, we are your dedicated global partner in design and construction supervision.",
+
+  "whoWeAre": {
+    "title": "WHO WE ARE",
+    "company": "HH CONSULTING ARCHITECTS & ENGINEERS"
+  },
+
+  "ourExpertise": {
+    "title": "OUR EXPERTISE",
+    "categories": [
+      {
+        "name": "Architectural and Engineering Design",
+        "services": [
+          "Architectural Design",
+          "Structural Engineering",
+          "Electrical and Mechanical Systems Design",
+          "Sanitary and Plumbing Systems"
+        ]
+      },
+      {
+        "name": "Urban & Environmental Service",
+        "services": [
+          "Urban and Regional Master Plans",
+          "Environmental Impact Assessments (EIA)",
+          "Landscape Architecture and Design",
+          "Topographic Surveys"
+        ]
+      },
+      {
+        "name": "Feasibility & Planning",
+        "services": [
+          "Feasibility Studies for Public and Private Projects",
+          "Strategic Planning and Site Analysis",
+          "Concept Development and Cost Estimations"
+        ]
+      },
+      {
+        "name": "Construction Supervision & Project Management",
+        "services": [
+          "Contract Administration",
+          "Quality Control and Assurance",
+          "Site Supervision",
+          "Project Scheduling and Monitoring"
+        ]
+      },
+      {
+        "name": "Infrastructure & Civil Engineering",
+        "services": [
+          "Road and Highway Design",
+          "Bridge and Transportation Structures",
+          "Irrigation and Water Resource Engineering",
+          "Infrastructure Master Planning"
+        ]
+      }
+    ]
+  },
+
+  "ourServices": {
+    "title": "OUR SERVICES",
+    "buildingDesign": {
+      "description": "At HH Consulting Architects and Engineers, We transcend conventional aesthetics by seamlessly weaving Ethiopian heritage, innovative sustainability, and human-centric functionality into every structure, our design are not merely buildings they are dynamic narratives of culture, resilience, and progress",
+      "services": [
+        "Building Design (Architectural, Structural, Electrical, Sanitary, Mechanical, and more)",
+        "Urban Design and Planning Works",
+        "Topography Survey",
+        "Landscape Design and Specification",
+        "Contract Administration and Supervision/Quality Control"
+      ]
+    }
+  },
+
+  "tableOfContents": {
+    "sections": [
+      {
+        "number": "01",
+        "title": "TABLE OF CONTENTS"
+      },
+      {
+        "number": "02-08",
+        "title": "COMPANY PROFILE"
+      },
+      {
+        "number": "08-11",
+        "title": "SITE WORKS PRESENTATIONS AND POTENTIAL CLIENTS"
+      },
+      {
+        "number": "14-21",
+        "title": "BUILDING DESIGNS"
+      },
+      {
+        "number": "23-26",
+        "title": "INFRASTRUCTURES"
+      },
+      {
+        "number": "27-29",
+        "title": "TERMINAL DESIGN"
+      },
+      {
+        "number": "30-32",
+        "title": "ROAD WORKS"
+      },
+      {
+        "number": "33-35",
+        "title": "IRRIGATIONS"
+      },
+      {
+        "number": "36-38",
+        "title": "BRIDGE DESIGN"
+      },
+      {
+        "number": "39",
+        "title": "FEASIBILITY STUDY"
+      },
+      {
+        "number": "40",
+        "title": "ENVIRONMENTAL IMPACT ASSESSMENT"
+      }
+    ]
+  },
+
+  "departments": {
+    "staffMembers": {
+      "title": "STAFF MEMBERS",
+      "departments": [
+        "SUPERVISION & CONTRACT ADMINISTRATION (SCAD)",
+        "DESIGN DEPARTMENT",
+        "PAYMENT DEPARTMENT",
+        "HUMAN RESOURCE DEPARTMENT",
+        "BID DEPARTMENT",
+        "IT DEPARTMENT"
+      ]
+    },
+    "staffRecognition": "STAFF RECOGNITION"
+  },
+
+  "certifications": {
+    "title": "CERTEFICATES"
+  },
+
+  "potentialClients": {
+    "title": "POTENTIAL CLIENTS",
+    "presentationTitle": "PRESENTATION WITH POTENTIAL CLIENTS"
+  },
+
+  "projectCategories": [
+    {
+      "id": "building-design",
+      "title": "BUILDING DESIGN",
+      "number": "04"
+    },
+    {
+      "id": "infrastructures",
+      "title": "INFRASTRUCTURES"
+    },
+    {
+      "id": "terminal-design",
+      "title": "TERMINAL DESIGN"
+    },
+    {
+      "id": "road-works",
+      "title": "ROAD WORKS"
+    },
+    {
+      "id": "irrigations",
+      "title": "IRRIGATIONS"
+    },
+    {
+      "id": "bridge-design",
+      "title": "BRIDGE DESIGN"
+    },
+    {
+      "id": "feasibility-study",
+      "title": "FEASIBILITY STUDY"
+    },
+    {
+      "id": "environmental-impact-assessment",
+      "title": "ENVIRONMENTAL IMPACT ASSESSMENT"
+    }
+  ],
+
+  "projectDescriptionTemplate": {
+    "narrativeDescription": "Preparing complete Architectural and Engineering Drawings, Preparing Bid Document. Contract Administration and supervision services were conducted.",
+    "fields": [
+      "Country",
+      "Location",
+      "Professional Staff Provided by our Firm",
+      "Client",
+      "No of Staff",
+      "Address",
+      "Duration of Assignment",
+      "Start Date",
+      "Approx. Value of Services",
+      "Name of Associated Consultants"
+    ]
+  }
+}

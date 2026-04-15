@@ -257,7 +257,7 @@ export function StaffSection({ onBack }: StaffSectionProps) {
       {/* Hero */}
       <div className="relative h-40 overflow-hidden">
         <Image
-          src="/images/stadium.jpg"
+          src="/images/staff-3.jpg"
           alt="Our Team"
           fill
           className="object-cover"
