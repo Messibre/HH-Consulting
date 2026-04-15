@@ -21,6 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hh-consulting-fawn.vercel.app/"),
   title: "HH Consulting Architects & Engineers | Worldwide Consulting",
   description:
     "Your dedicated global partner in design and construction supervision. Engineering excellence for buildings, infrastructure, airports, bridges, and more. Serving Ethiopia and East Africa since 1992.",
