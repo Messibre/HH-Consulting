@@ -88,7 +88,6 @@ export function CategoriesWall({
           quality={90}
           sizes="100vw"
           priority
-        loading="eager"
         />
         {/* Overlay - lighter for light mode */}
         <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />
@@ -129,7 +128,6 @@ export function CategoriesWall({
             fill
             className="object-cover"
             sizes="32px"
-          loading="eager"
           />
         </div>
         <ThemeToggle />

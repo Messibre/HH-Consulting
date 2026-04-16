@@ -194,7 +194,6 @@ function StaffAvatar({
           height={160}
           className="h-full w-full object-cover"
           onError={() => setImageFailed(true)}
-        loading="eager"
         />
       </div>
     );
@@ -254,7 +253,6 @@ export function StaffSection({ onBack }: StaffSectionProps) {
               fill
               className="object-cover"
               sizes="32px"
-            loading="eager"
             />
           </div>
           <ThemeToggle />
@@ -271,7 +269,6 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           quality={80}
           sizes="100vw"
           priority
-        loading="eager"
         />
         <button
           type="button"
@@ -489,7 +486,6 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                     fill
                     className="object-cover"
                     sizes="208px"
-                  loading="eager"
                   />
                 </motion.button>
               ))}
@@ -579,7 +575,6 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                         fill
                         className="object-cover"
                         sizes="(max-width: 640px) 88vw, 18rem"
-                      loading="eager"
                       />
                     </button>
                   ) : (
@@ -743,8 +738,6 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                 fill
                 className="object-contain"
                 sizes="100vw"
-                priority
-              loading="eager"
               />
             </motion.div>
           </motion.div>

@@ -111,7 +111,6 @@ export function SidebarNav({ isOpen, onClose, onNavigate }: SidebarNavProps) {
                     fill
                     className="object-cover"
                     sizes="40px"
-                  loading="eager"
                   />
                 </div>
                 <div>

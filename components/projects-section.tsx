@@ -138,8 +138,8 @@ export function ProjectsSection() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   quality={80}
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  loading={index < 2 ? "eager" : "lazy"}
-                  priority={index === 0}
+                  loading={index < 3 ? "eager" : "lazy"}
+                  priority={index < 3}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
 

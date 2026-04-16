@@ -117,7 +117,6 @@ export function FAQSection({ onBack, onContact }: FAQProps) {
               fill
               className="object-cover"
               sizes="32px"
-            loading="eager"
             />
           </div>
           <ThemeToggle />

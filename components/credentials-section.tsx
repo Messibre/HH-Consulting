@@ -166,7 +166,6 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
               fill
               className="object-cover"
               sizes="32px"
-            loading="eager"
             />
           </div>
           <ThemeToggle />
@@ -264,7 +263,6 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
                     fill
                     className="object-cover"
                     sizes="224px"
-                  loading="eager"
                   />
                 </motion.button>
               ))}
@@ -399,8 +397,6 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
                 fill
                 className="object-contain"
                 sizes="100vw"
-                priority
-              loading="eager"
               />
             </motion.div>
           </motion.div>

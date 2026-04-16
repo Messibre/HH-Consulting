@@ -130,7 +130,6 @@ export function ProcessSection({ onBack, onContact }: ProcessProps) {
               fill
               className="object-cover"
               sizes="32px"
-            loading="eager"
             />
           </div>
           <ThemeToggle />
