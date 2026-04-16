@@ -86,6 +86,7 @@ export function CategoriesWall({
           fill
           className="object-cover"
           quality={90}
+          sizes="100vw"
         />
         {/* Overlay - lighter for light mode */}
         <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />

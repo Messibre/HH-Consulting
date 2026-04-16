@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { ArrowLeft } from "lucide-react"
-import type { Project } from "./staggered-grid"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import type { Project } from "./staggered-grid";
 
 interface ProjectDetails {
-  function: string
-  concept: string[]
-  area: string
-  location: string
-  year: string
+  function: string;
+  concept: string[];
+  area: string;
+  location: string;
+  year: string;
 }
 
 const projectDetails: Record<string, ProjectDetails> = {
@@ -86,15 +86,15 @@ const projectDetails: Record<string, ProjectDetails> = {
     location: "Metropolitan Area",
     year: "2023",
   },
-}
+};
 
 interface WallDescriptionProps {
-  project: Project
-  onBack: () => void
+  project: Project;
+  onBack: () => void;
 }
 
 export function WallDescription({ project, onBack }: WallDescriptionProps) {
-  const details = projectDetails[project.id]
+  const details = projectDetails[project.id];
 
   return (
     <section className="relative min-h-screen bg-background">
@@ -106,6 +106,7 @@ export function WallDescription({ project, onBack }: WallDescriptionProps) {
           fill
           className="object-cover"
           priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
       </div>
@@ -146,7 +147,7 @@ export function WallDescription({ project, onBack }: WallDescriptionProps) {
         <div className="relative">
           {/* Shadow layer for depth */}
           <div className="absolute -right-2 top-2 h-full w-full rounded-3xl bg-black/30" />
-          
+
           {/* Main panel */}
           <div className="relative rounded-3xl bg-gradient-to-br from-stone-100 to-stone-200 p-6 shadow-2xl">
             {/* Project number */}
@@ -269,5 +270,5 @@ export function WallDescription({ project, onBack }: WallDescriptionProps) {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }

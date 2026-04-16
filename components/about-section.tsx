@@ -86,7 +86,8 @@ export function AboutSection({ onBack }: AboutSectionProps) {
           alt="HH Consulting Office"
           fill
           className="object-cover"
-          quality={100}
+          quality={80}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         <motion.div

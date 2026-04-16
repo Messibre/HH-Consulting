@@ -262,7 +262,8 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           alt="Our Team"
           fill
           className="object-cover"
-          quality={100}
+          quality={80}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
         <motion.div

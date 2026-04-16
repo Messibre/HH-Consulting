@@ -1,0 +1,21 @@
+{
+  "name": "HH Consulting Architects & Engineers",
+  "short_name": "HH Consulting",
+  "description": "Worldwide consulting in architecture, engineering, and construction supervision.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f131d",
+  "theme_color": "#1a1f2e",
+  "icons": [
+    {
+      "src": "/images/hh-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/images/hh-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
