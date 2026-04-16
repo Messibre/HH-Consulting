@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { ArrowRight, MapPin } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import Image from "next/image";
+import { ArrowRight, MapPin } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const categories = [
   { id: "all", label: "All" },
@@ -11,7 +11,7 @@ const categories = [
   { id: "infrastructure", label: "Infrastructure" },
   { id: "terminal", label: "Terminals" },
   { id: "bridge", label: "Bridges" },
-]
+];
 
 const projects = [
   {
@@ -21,16 +21,18 @@ const projects = [
     location: "Haramaya, Ethiopia",
     value: "2.8B ETB",
     image: "/images/hospital.jpg",
-    description: "13-story state-of-the-art medical facility with complete architectural and engineering design."
+    description:
+      "13-story state-of-the-art medical facility with complete architectural and engineering design.",
   },
   {
     id: 2,
     category: "building",
     title: "Kebede Mixed Use G+34",
-    location: "Addis Ababa, Ethiopia", 
+    location: "Addis Ababa, Ethiopia",
     value: "6.6B ETB",
     image: "/images/hero-building.jpg",
-    description: "Premium 34-story mixed-use development featuring modern architectural excellence."
+    description:
+      "Premium 34-story mixed-use development featuring modern architectural excellence.",
   },
   {
     id: 3,
@@ -39,7 +41,8 @@ const projects = [
     location: "Axum, Tigray",
     value: "290M ETB",
     image: "/images/airport-terminal.jpg",
-    description: "Complete airport terminal design with airfield and facility building maintenance."
+    description:
+      "Complete airport terminal design with airfield and facility building maintenance.",
   },
   {
     id: 4,
@@ -48,7 +51,8 @@ const projects = [
     location: "Oromia, Ethiopia",
     value: "4B ETB",
     image: "/images/stadium.jpg",
-    description: "60,000 seat international stadium with world-class facilities and infrastructure."
+    description:
+      "60,000 seat international stadium with world-class facilities and infrastructure.",
   },
   {
     id: 5,
@@ -57,7 +61,8 @@ const projects = [
     location: "Tiya Town, Ethiopia",
     value: "Project Value",
     image: "/images/bridge-design.jpg",
-    description: "UNESCO World Heritage site tourism development with architectural and landscape design."
+    description:
+      "UNESCO World Heritage site tourism development with architectural and landscape design.",
   },
   {
     id: 6,
@@ -66,17 +71,21 @@ const projects = [
     location: "Multiple Regions",
     value: "Varies",
     image: "/images/infrastructure.jpg",
-    description: "Road and highway design projects connecting communities across Ethiopia."
+    description:
+      "Road and highway design projects connecting communities across Ethiopia.",
   },
-]
+];
 
 export function ProjectsSection() {
-  const [activeCategory, setActiveCategory] = useState("all")
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null);
 
-  const filteredProjects = activeCategory === "all" 
-    ? projects 
-    : projects.filter(p => p.category === activeCategory)
+  const filteredProjects =
+    activeCategory === "all"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
 
   return (
     <section id="projects" className="py-16 px-5 bg-background">
@@ -98,7 +107,7 @@ export function ProjectsSection() {
                 "px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all",
                 activeCategory === cat.id
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80",
               )}
             >
               {cat.label}
@@ -111,10 +120,14 @@ export function ProjectsSection() {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              onClick={() => setSelectedProject(selectedProject?.id === project.id ? null : project)}
+              onClick={() =>
+                setSelectedProject(
+                  selectedProject?.id === project.id ? null : project,
+                )
+              }
               className={cn(
                 "group cursor-pointer rounded-xl overflow-hidden border border-border bg-card transition-all duration-300",
-                selectedProject?.id === project.id && "border-primary"
+                selectedProject?.id === project.id && "border-primary",
               )}
             >
               <div className="relative h-48 overflow-hidden">
@@ -123,10 +136,13 @@ export function ProjectsSection() {
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  quality={90}
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading={index < 2 ? "eager" : "lazy"}
+                  priority={index === 0}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                
+
                 {/* Project Number */}
                 <div className="absolute top-4 left-4 bg-primary/90 text-primary-foreground text-xs font-mono px-2 py-1 rounded">
                   {String(index + 1).padStart(2, "0")}
@@ -145,10 +161,14 @@ export function ProjectsSection() {
               </div>
 
               {/* Expanded Details */}
-              <div className={cn(
-                "grid transition-all duration-300",
-                selectedProject?.id === project.id ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-              )}>
+              <div
+                className={cn(
+                  "grid transition-all duration-300",
+                  selectedProject?.id === project.id
+                    ? "grid-rows-[1fr]"
+                    : "grid-rows-[0fr]",
+                )}
+              >
                 <div className="overflow-hidden">
                   <div className="p-4 pt-0 border-t border-border mt-0">
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4 pt-4">
@@ -156,8 +176,12 @@ export function ProjectsSection() {
                     </p>
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-xs text-muted-foreground">Project Value</p>
-                        <p className="text-primary font-bold">{project.value}</p>
+                        <p className="text-xs text-muted-foreground">
+                          Project Value
+                        </p>
+                        <p className="text-primary font-bold">
+                          {project.value}
+                        </p>
                       </div>
                       <button className="flex items-center gap-1 text-primary text-sm font-medium hover:gap-2 transition-all">
                         View Details <ArrowRight className="w-4 h-4" />
@@ -171,5 +195,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

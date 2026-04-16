@@ -140,7 +140,7 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-background/10 to-transparent" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -260,12 +260,12 @@ export function StaffSection({ onBack }: StaffSectionProps) {
       </div>
 
       {/* Hero */}
-      <div className="relative h-40 overflow-hidden">
+      <div className="relative h-40 overflow-hidden md:h-60 lg:h-72">
         <Image
           src="/images/staff-3.jpg"
           alt="Our Team"
           fill
-          className="object-cover"
+          className="object-cover object-[center_top] md:object-left-top lg:object-left-top"
           quality={80}
           sizes="100vw"
           priority

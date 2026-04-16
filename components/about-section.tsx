@@ -90,7 +90,7 @@ export function AboutSection({ onBack }: AboutSectionProps) {
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/35 via-background/12 to-transparent" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
