@@ -73,6 +73,7 @@ export function VisionSection({ onBack }: VisionSectionProps) {
           className="object-cover"
           quality={80}
           sizes="100vw"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         <motion.div

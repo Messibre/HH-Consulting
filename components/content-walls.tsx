@@ -128,14 +128,14 @@ export function ContentWalls({
         <div className="flex items-center gap-2">
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
-            className="flex h-6 w-6 items-center justify-center overflow-hidden rounded bg-primary"
+            className="relative flex h-6 w-6 items-center justify-center overflow-hidden rounded bg-primary"
           >
             <Image
               src="/images/hh-logo.jpg"
               alt="HH"
-              width={24}
-              height={24}
+              fill
               className="object-cover"
+              sizes="24px"
             />
           </motion.div>
           <ThemeToggle />

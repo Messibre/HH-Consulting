@@ -116,13 +116,13 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
         </motion.button>
 
         <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
+          <div className="relative h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
             <Image
               src="/images/hh-logo.jpg"
               alt="HH"
-              width={32}
-              height={32}
+              fill
               className="object-cover"
+              sizes="32px"
             />
           </div>
           <ThemeToggle />
@@ -138,6 +138,7 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
           className="object-cover"
           quality={80}
           sizes="100vw"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
         <motion.div

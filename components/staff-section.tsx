@@ -268,6 +268,7 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           className="object-cover"
           quality={80}
           sizes="100vw"
+          priority
         />
         <button
           type="button"

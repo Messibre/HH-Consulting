@@ -87,6 +87,7 @@ export function CategoriesWall({
           className="object-cover"
           quality={90}
           sizes="100vw"
+          priority
         />
         {/* Overlay - lighter for light mode */}
         <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />
@@ -120,13 +121,13 @@ export function CategoriesWall({
 
       {/* Header */}
       <div className="absolute top-6 right-5 z-20 flex items-center gap-3">
-        <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
+        <div className="relative h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
           <Image
             src="/images/hh-logo.jpg"
             alt="HH"
-            width={32}
-            height={32}
+            fill
             className="object-cover"
+            sizes="32px"
           />
         </div>
         <ThemeToggle />
