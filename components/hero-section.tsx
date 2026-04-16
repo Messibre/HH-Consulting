@@ -29,6 +29,7 @@ export function HeroSection({
           priority
           quality={80}
           sizes="100vw"
+        loading="eager"
         />
         {/* Gradient Overlay - balanced for both modes */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent dark:from-background dark:via-background/60 dark:to-background/20" />

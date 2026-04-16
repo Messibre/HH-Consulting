@@ -109,10 +109,10 @@ export function ProcessSection({ onBack, onContact }: ProcessProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-background"
+      className="fixed inset-0 bg-background overflow-y-auto"
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-4 border-b border-border">
+      <div className="sticky top-0 z-20 flex items-center justify-between px-5 py-4 border-b border-border bg-background/90 backdrop-blur-md">
         <motion.button
           whileHover={{ x: -4 }}
           whileTap={{ scale: 0.95 }}
@@ -130,6 +130,7 @@ export function ProcessSection({ onBack, onContact }: ProcessProps) {
               fill
               className="object-cover"
               sizes="32px"
+            loading="eager"
             />
           </div>
           <ThemeToggle />

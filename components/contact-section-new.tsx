@@ -123,6 +123,7 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
               fill
               className="object-cover"
               sizes="32px"
+            loading="eager"
             />
           </div>
           <ThemeToggle />
@@ -139,6 +140,7 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
           quality={80}
           sizes="100vw"
           priority
+        loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-background/10 to-transparent" />
         <motion.div

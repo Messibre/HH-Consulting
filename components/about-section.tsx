@@ -73,6 +73,7 @@ export function AboutSection({ onBack }: AboutSectionProps) {
               fill
               className="object-cover"
               sizes="32px"
+            loading="eager"
             />
           </div>
           <ThemeToggle />
@@ -89,6 +90,7 @@ export function AboutSection({ onBack }: AboutSectionProps) {
           quality={80}
           sizes="100vw"
           priority
+        loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/35 via-background/12 to-transparent" />
         <motion.div

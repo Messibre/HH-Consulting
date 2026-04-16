@@ -139,6 +139,7 @@ export function LegalSection({ type, onBack }: LegalProps) {
               fill
               className="object-cover"
               sizes="32px"
+            loading="eager"
             />
           </div>
           <ThemeToggle />

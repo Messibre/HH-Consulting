@@ -21,6 +21,7 @@ export function Footer({ onNavigate }: FooterProps) {
               fill
               className="object-cover"
               sizes="48px"
+            loading="eager"
             />
           </div>
           <div>

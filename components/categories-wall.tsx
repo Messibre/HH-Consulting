@@ -88,6 +88,7 @@ export function CategoriesWall({
           quality={90}
           sizes="100vw"
           priority
+        loading="eager"
         />
         {/* Overlay - lighter for light mode */}
         <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />
@@ -128,6 +129,7 @@ export function CategoriesWall({
             fill
             className="object-cover"
             sizes="32px"
+          loading="eager"
           />
         </div>
         <ThemeToggle />
@@ -141,21 +143,6 @@ export function CategoriesWall({
           <Menu className="w-4 h-4" />
         </motion.button>
       </div>
-
-      {/* Section Title - positioned to not overlap with categories */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="absolute bottom-16 left-5 z-20"
-      >
-        <p className="text-primary text-[9px] tracking-[0.3em] uppercase mb-0.5">
-          Explore
-        </p>
-        <h2 className="font-heading text-lg font-bold text-white">
-          Our Services
-        </h2>
-      </motion.div>
 
       {/* Category Labels - Positioned like building signage */}
       <div className="absolute inset-0 z-10">
@@ -208,22 +195,6 @@ export function CategoriesWall({
           </motion.button>
         ))}
       </div>
-
-      {/* Bottom instruction */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
-      >
-        <motion.p
-          animate={{ y: [0, -4, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="text-[10px] text-muted-foreground tracking-widest uppercase"
-        >
-          Tap to explore
-        </motion.p>
-      </motion.div>
     </motion.div>
   );
 }

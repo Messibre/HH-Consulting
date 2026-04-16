@@ -136,6 +136,7 @@ export function ContentWalls({
               fill
               className="object-cover"
               sizes="24px"
+            loading="eager"
             />
           </motion.div>
           <ThemeToggle />
@@ -151,7 +152,7 @@ export function ContentWalls({
           transition={{ duration: 0.3 }}
           className="flex h-full flex-col lg:flex-row"
         >
-          <div className="relative h-[42vh] w-full lg:h-full lg:w-1/2">
+          <div className="relative h-[45vh] w-full lg:h-full lg:w-1/2">
             {currentContent.hasImage && currentContent.image ? (
               <Image
                 src={currentContent.image}
@@ -160,6 +161,7 @@ export function ContentWalls({
                 className="object-cover"
                 quality={85}
                 sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="eager"
               />
             ) : (
               <ProjectPlaceholder item={currentContent} />
@@ -184,7 +186,7 @@ export function ContentWalls({
             <div className="absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-stone-100/30 to-transparent" />
           </div>
 
-          <div className="flex h-full w-full flex-col justify-center overflow-y-auto bg-gradient-to-b from-stone-50 to-stone-100 px-4 py-10 lg:w-1/2 lg:px-5 lg:py-16">
+          <div className="flex h-full w-full flex-col justify-start overflow-y-auto bg-gradient-to-b from-stone-50 to-stone-100 px-4 py-6 lg:w-1/2 lg:justify-center lg:px-5 lg:py-16">
             <div
               className="absolute inset-0 opacity-[0.02]"
               style={{
