@@ -59,14 +59,22 @@ const testimonials = [
 ];
 
 const clientLogos = [
-  { name: "Ethiopian Airports Enterprise", abbr: "EAE" },
-  { name: "Ministry of Culture & Tourism", abbr: "MoCT" },
-  { name: "Haramaya University", abbr: "HU" },
-  { name: "Sidama Roads Authority", abbr: "SRA" },
-  { name: "Addis Ababa City Administration", abbr: "AACA" },
-  { name: "Ethiopian Roads Authority", abbr: "ERA" },
-  { name: "Ministry of Education", abbr: "MoE" },
-  { name: "Djibouti Government", abbr: "DJ" },
+  { name: "Potential Client 1", src: "/images/potential-1.jpg" },
+  { name: "Potential Client 2", src: "/images/potential-2.jpg" },
+  { name: "Potential Client 3", src: "/images/potential-3.jpg" },
+  { name: "Potential Client 4", src: "/images/potential-4.jpg" },
+  { name: "Potential Client 5", src: "/images/potential-5.jpg" },
+  { name: "Potential Client 6", src: "/images/potential-6.jpg" },
+  { name: "Potential Client 7", src: "/images/potential-7.jpg" },
+  { name: "Potential Client 8", src: "/images/potential-8.jpg" },
+  { name: "Potential Client 9", src: "/images/potential-9.jpg" },
+  { name: "Potential Client 10", src: "/images/potential-10.jpg" },
+  { name: "Potential Client 11", src: "/images/potential-11.jpg" },
+  { name: "Potential Client 12", src: "/images/potential-12.jpg" },
+  { name: "Potential Client 13", src: "/images/potential-13.jpg" },
+  { name: "Potential Client 14", src: "/images/potential-14.jpg" },
+  { name: "Potential Client 15", src: "/images/potential-15.jpg" },
+  { name: "Potential Client 16", src: "/images/potential-16.jpg" },
 ];
 
 export function TestimonialsSection({ onBack }: TestimonialsProps) {
@@ -207,22 +215,25 @@ export function TestimonialsSection({ onBack }: TestimonialsProps) {
           <p className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-4">
             Trusted By
           </p>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {clientLogos.map((client, idx) => (
               <motion.div
-                key={idx}
+                key={client.src}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + idx * 0.05 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-card border border-border rounded-lg p-3 flex flex-col items-center justify-center aspect-square"
+                className="bg-card border border-border rounded-lg p-3"
               >
-                <span className="text-lg font-bold text-primary">
-                  {client.abbr}
-                </span>
-                <span className="text-[7px] text-muted-foreground text-center mt-1 leading-tight">
-                  {client.name}
-                </span>
+                <div className="relative w-full aspect-[1.35] overflow-hidden rounded-md bg-muted">
+                  <Image
+                    src={client.src}
+                    alt={client.name}
+                    fill
+                    className="object-contain p-2"
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
+                </div>
               </motion.div>
             ))}
           </div>

@@ -40,7 +40,7 @@ const manualImageMatches: Record<string, string> = {
   "Greenland Tour and Hotel": "/images/greenland and tour hotel.jpg",
   "Bule Hora International Stadium": "/images/bule hora estadium.jpg",
   "Bule Hora University": "/images/bule hora university.jpg",
-  "BM Housing Corporation 3B+G+12": "/images/bm housing corporation.jpg",
+  "BM Housing Corporation 3B+G+12": "/images/bm housing plc.jpg",
   "Birhanu Amare Mixed-Use": "/images/brhane amare building.jpg",
   "Merkato Mixed-Use": "/images/merkato mixed use.jpg",
   "Ato Asebe Apartment Hotel 2B+G+18": "/images/ato asebe hotel apartement.jpg",
@@ -51,22 +51,27 @@ const manualImageMatches: Record<string, string> = {
   "Haramaya University Admin Building": "/images/haramaya admin building.jpg",
   "Suzo Industry PLC": "/images/suko industrial-plc.jpg",
   "Experience Clothing Industrial Park": "/images/experiance clothing.jpg",
-  "Axum International Airport": "/images/airport-terminal.jpg",
-  "Jimma International Airport": "/images/airport-terminal.jpg",
-  "Haramaya University Bus Terminal": "/images/infrastructure.jpg",
-  "Gambela International Airport": "/images/airport-terminal.jpg",
-  "Bule Hora Road Construction A": "/images/road-construction.jpg",
-  "Bule Hora Road Construction B": "/images/road-construction.jpg",
-  "Irrigation Project 1": "/images/irrigation.jpg",
-  "Irrigation Project 2": "/images/irrigation.jpg",
-  "Sherero Bridge": "/images/bridge-design.jpg",
-  "Burure Bridge": "/images/bridge-design.jpg",
-  "Aredo Bridge": "/images/bridge-design.jpg",
-  "Boreshebele Bridge": "/images/bridge-design.jpg",
-  "Habesha Steel Factory": "/images/industrial.jpg",
-  "Tomato Factory": "/images/industrial.jpg",
-  "Institut Africain de Djibouti": "/images/school.jpg",
-  "Ersido Lemengo Food Complex": "/images/industrial.jpg",
+  "Axum International Airport": "/images/axum-intern-airport.jpg",
+  "Jimma International Airport": "/images/jimma-international-airport.jpg",
+  "Haramaya University Bus Terminal": "/images/haremaya-bus-terminal.jpg",
+  "Gambela International Airport": "/images/gambela-airport.jpg",
+  "Bule Hora Road Construction A": "/images/bulehora-road-construction-A.jpg",
+  "Bule Hora Road Construction B": "/images/bule-hora-road-construction-B.jpg",
+  "Irrigation Project 1": "/images/hydrolics-irrigation.jpg",
+  "Irrigation Project 2": "/images/hydrolics-irrigation-B.jpg",
+  "Sherero Bridge": "/images/sidama-bridge-project.jpg",
+  "Burure Bridge": "/images/bridge-projects.jpg",
+  "Aredo Bridge": "/images/bridge-projects.jpg",
+  "Boreshebele Bridge": "/images/sidama-bridge-project.jpg",
+  "Habesha Steel Factory": "/images/habesha-steel.jpg",
+  "Tomato Factory": "/images/tomato-factory.jpg",
+  "Institut Africain de Djibouti": "/images/institute-of-africa-de-djoubti.jpg",
+  "Ersido Lemengo Food Complex": "/images/ersido-food-complex.jpg",
+};
+
+const categoryOverrides: Record<string, string> = {
+  "Sherero Bridge": "road-works",
+  "Burure Bridge": "road-works",
 };
 
 export interface ContentItem {
@@ -133,7 +138,11 @@ function normalizeImage(image?: string) {
 }
 
 function resolveMatchedImage(project: RawProject) {
-  return manualImageMatches[project.name] ?? null;
+  return manualImageMatches[project.name] ?? normalizeImage(project.image);
+}
+
+function resolveCategory(project: RawProject) {
+  return categoryOverrides[project.name] ?? project.category;
 }
 
 function buildContentItem(project: RawProject, index: number): ContentItem {
@@ -168,8 +177,12 @@ function buildContentItem(project: RawProject, index: number): ContentItem {
 
 const groupedProjects = typedData.projects.reduce<Record<string, RawProject[]>>(
   (acc, project) => {
-    acc[project.category] ||= [];
-    acc[project.category].push(project);
+    const effectiveCategory = resolveCategory(project);
+    acc[effectiveCategory] ||= [];
+    acc[effectiveCategory].push({
+      ...project,
+      category: effectiveCategory,
+    });
     return acc;
   },
   {},

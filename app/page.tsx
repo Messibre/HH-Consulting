@@ -144,9 +144,19 @@ export default function Home() {
           <CredentialsSection onBack={handleBack} />
         )}
 
-        {currentView === "faq" && <FAQSection onBack={handleBack} />}
+        {currentView === "faq" && (
+          <FAQSection
+            onBack={handleBack}
+            onContact={() => setCurrentView("contact")}
+          />
+        )}
 
-        {currentView === "process" && <ProcessSection onBack={handleBack} />}
+        {currentView === "process" && (
+          <ProcessSection
+            onBack={handleBack}
+            onContact={() => setCurrentView("contact")}
+          />
+        )}
 
         {currentView === "privacy" && (
           <LegalSection type="privacy" onBack={handleBack} />

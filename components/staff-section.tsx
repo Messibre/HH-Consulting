@@ -73,6 +73,7 @@ const staffImageByName: Record<string, string> = {
   "Dibora Mesfin": "/images/dibora-mesfin.jpg",
   "Hailegiorgis Solomon": "/images/hailegiyorgis-solomon.jpg",
   Helen: "/images/helen-receptionist.jpg",
+  "Mekdes Gebru": "/images/mekdes-receptionist.jpg",
 };
 
 const staffGalleryImages = [

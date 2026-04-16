@@ -13,6 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
+import emailjs from "@emailjs/browser";
 
 interface ContactSectionProps {
   onBack: () => void;
@@ -43,11 +44,56 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      const subject = encodeURIComponent(
+        formState.subject || "Consultation Request",
+      );
+      const body = encodeURIComponent(
+        `Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`,
+      );
+      window.location.href = `mailto:hhconsultingarchitectengineers@gmail.com?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    try {
+      setIsSending(true);
+      setSendError(null);
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formState.name,
+          from_email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+          to_email: "hhconsultingarchitectengineers@gmail.com",
+        },
+        {
+          publicKey,
+        },
+      );
+
+      setIsSubmitted(true);
+      setFormState({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      setSendError(
+        "Unable to send message right now. Please try again or use email.",
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -318,11 +364,15 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                disabled={isSending}
                 className="w-full py-3.5 bg-primary text-primary-foreground rounded-xl font-semibold text-sm flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
               </motion.button>
+              {sendError && (
+                <p className="text-xs text-red-500 text-center">{sendError}</p>
+              )}
             </form>
           )}
         </motion.div>

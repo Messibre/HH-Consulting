@@ -8,6 +8,7 @@ import { ThemeToggle } from "./theme-toggle";
 
 interface FAQProps {
   onBack: () => void;
+  onContact: () => void;
 }
 
 const faqs = [
@@ -81,7 +82,7 @@ const faqs = [
   },
 ];
 
-export function FAQSection({ onBack }: FAQProps) {
+export function FAQSection({ onBack, onContact }: FAQProps) {
   const [openItems, setOpenItems] = useState<string[]>([]);
 
   const toggleItem = (id: string) => {
@@ -220,6 +221,7 @@ export function FAQSection({ onBack }: FAQProps) {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={onContact}
             className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full text-sm font-semibold"
           >
             Contact Us

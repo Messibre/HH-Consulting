@@ -91,6 +91,48 @@ const affiliations = [
 ];
 
 export function CredentialsSection({ onBack }: CredentialsProps) {
+  const handleDownloadProfile = async () => {
+    const { jsPDF } = await import("jspdf/dist/jspdf.es.min.js");
+    const doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text("HH Consulting Architects & Engineers PLC", 14, 18);
+    doc.setFontSize(11);
+    doc.text("Company Profile", 14, 27);
+    doc.setFontSize(10);
+    doc.text("Website: https://hhconsultinget.com", 14, 37);
+    doc.text("Worldwide consulting. Engineered excellence.", 14, 43);
+
+    doc.setFontSize(12);
+    doc.text("Key Facts", 14, 56);
+    doc.setFontSize(10);
+    doc.text("• Grade 1 consulting license", 18, 65);
+    doc.text("• 200+ permanent staff", 18, 72);
+    doc.text("• 42 documented projects", 18, 79);
+    doc.text("• Ethiopia and Djibouti coverage", 18, 86);
+
+    doc.setFontSize(12);
+    doc.text("Services", 14, 100);
+    doc.setFontSize(9);
+    const services = [
+      "Building design",
+      "Urban design and planning",
+      "Infrastructures",
+      "Terminal design",
+      "Road works",
+      "Irrigations",
+      "Feasibility study",
+      "Topography survey",
+      "Landscape design and specification",
+      "Contract administration and supervision",
+    ];
+    services.forEach((service, index) => {
+      doc.text(`• ${service}`, 18, 109 + index * 7);
+    });
+
+    doc.save("HH-Consulting-Company-Profile.pdf");
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -299,6 +341,7 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={handleDownloadProfile}
             className="w-full bg-primary text-primary-foreground rounded-xl p-4 flex items-center justify-center gap-3"
           >
             <Download className="w-5 h-5" />
