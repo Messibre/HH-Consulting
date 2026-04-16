@@ -16,7 +16,7 @@
   "categories": [
     {
       "id": "site-works",
-      "name": "Site Works Presentations and Potential Clients",
+      "name": "Site Works and Presentations",
       "description": "Client presentations, proposals, and site analysis work"
     },
     {
@@ -58,11 +58,6 @@
       "id": "environmental-assessment",
       "name": "Environmental Impact Assessment",
       "description": "Environmental assessments, policy drafting, and impact analysis"
-    },
-    {
-      "id": "potential-clients",
-      "name": "Potential Clients",
-      "description": "Ongoing client relationships and business development"
     }
   ],
   "projects": [

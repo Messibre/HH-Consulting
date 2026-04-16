@@ -35,7 +35,6 @@ type View =
 const categoryNames: Record<string, string> = {
   "site-works": "Site Works",
   presentations: "Presentations",
-  "potential-clients": "Potential Clients",
   "building-designs": "Building Designs",
   infrastructures: "Infrastructures",
   "terminal-design": "Terminal Design",

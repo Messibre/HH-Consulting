@@ -132,7 +132,7 @@ export function ContactSectionNew({ onBack }: ContactSectionProps) {
       {/* Hero */}
       <div className="relative h-40 overflow-hidden">
         <Image
-          src="/images/airport-terminal.jpg"
+          src="/images/axum-intern-airport.jpg"
           alt="Contact Us"
           fill
           className="object-cover"

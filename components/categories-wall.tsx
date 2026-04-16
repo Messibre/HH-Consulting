@@ -19,49 +19,44 @@ const categories: Category[] = [
     position: { top: "12%", left: "55%" },
   },
   {
-    id: "potential-clients",
-    name: "POTENTIAL CLIENTS",
-    position: { top: "22%", left: "8%" },
-  },
-  {
     id: "building-designs",
     name: "BUILDING DESIGNS",
-    position: { top: "28%", left: "48%" },
+    position: { top: "23%", left: "48%" },
   },
   {
     id: "infrastructures",
     name: "INFRASTRUCTURES",
-    position: { top: "38%", left: "12%" },
+    position: { top: "33%", left: "12%" },
   },
   {
     id: "terminal-design",
     name: "TERMINAL DESIGN",
-    position: { top: "45%", left: "52%" },
+    position: { top: "41%", left: "52%" },
   },
   {
     id: "road-works",
     name: "ROAD WORKS",
-    position: { top: "55%", left: "6%" },
+    position: { top: "50%", left: "6%" },
   },
   {
     id: "irrigations",
     name: "IRRIGATIONS",
-    position: { top: "62%", left: "55%" },
+    position: { top: "58%", left: "55%" },
   },
   {
     id: "bridge-design",
     name: "BRIDGE DESIGN",
-    position: { top: "72%", left: "15%" },
+    position: { top: "67%", left: "15%" },
   },
   {
     id: "feasibility-study",
     name: "FEASIBILITY STUDY",
-    position: { top: "78%", left: "45%" },
+    position: { top: "74%", left: "45%" },
   },
   {
     id: "environmental-assessment",
     name: "ENVIRONMENTAL ASSESSMENT",
-    position: { top: "86%", left: "8%" },
+    position: { top: "80%", left: "8%" },
   },
 ];
 
