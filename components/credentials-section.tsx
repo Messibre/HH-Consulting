@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft,
   Award,
@@ -9,6 +10,7 @@ import {
   BadgeCheck,
   Download,
   Building2,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
@@ -91,6 +93,11 @@ const affiliations = [
 ];
 
 export function CredentialsSection({ onBack }: CredentialsProps) {
+  const [previewImage, setPreviewImage] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
+
   const handleDownloadProfile = async () => {
     const { jsPDF } = await import("jspdf/dist/jspdf.es.min.js");
     const doc = new jsPDF();
@@ -237,11 +244,17 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
           <div className="-mx-5 px-5 overflow-x-auto pb-2">
             <div className="flex gap-3 w-max">
               {certificateGalleryImages.map((src, idx) => (
-                <motion.div
+                <motion.button
                   key={src}
+                  type="button"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 + idx * 0.05 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() =>
+                    setPreviewImage({ src, alt: `Certificate ${idx + 1}` })
+                  }
                   className="relative w-56 h-36 overflow-hidden rounded-xl border border-border bg-card shadow-sm"
                 >
                   <Image
@@ -251,7 +264,7 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
                     className="object-cover"
                     sizes="224px"
                   />
-                </motion.div>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -351,6 +364,45 @@ export function CredentialsSection({ onBack }: CredentialsProps) {
           </motion.button>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {previewImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-black/90 p-4 flex items-center justify-center"
+            onClick={() => setPreviewImage(null)}
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setPreviewImage(null)}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 border border-white/20 flex items-center justify-center"
+              aria-label="Close certificate preview"
+            >
+              <X className="w-5 h-5 text-white" />
+            </motion.button>
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", damping: 22 }}
+              className="relative w-full max-w-5xl h-[78vh]"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <Image
+                src={previewImage.src}
+                alt={previewImage.alt}
+                fill
+                className="object-contain"
+                sizes="100vw"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 }

@@ -44,14 +44,16 @@ export function HeroSection({
         <div className="flex items-center gap-3">
           <motion.div
             whileHover={{ scale: 1.05, rotate: 2 }}
-            className="h-11 w-11 rounded-xl overflow-hidden shadow-lg ring-2 ring-primary/30"
+            className="relative h-11 w-11 rounded-xl overflow-hidden shadow-lg ring-2 ring-primary/30"
           >
             <Image
               src="/images/hh-logo.jpg"
               alt="HH Consulting Logo"
-              width={44}
-              height={44}
+              fill
               className="object-cover"
+              priority
+              loading="eager"
+              sizes="44px"
             />
           </motion.div>
           <div className="flex flex-col">

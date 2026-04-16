@@ -8,7 +8,7 @@ const nextConfig = {
     unoptimized: false,
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60,
-    qualities: [65, 75, 85],
+    qualities: [65, 75, 80, 85, 90],
   },
   async headers() {
     return [

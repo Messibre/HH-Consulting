@@ -214,6 +214,10 @@ function StaffAvatar({
 
 export function StaffSection({ onBack }: StaffSectionProps) {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [previewImage, setPreviewImage] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
   const maxDepartmentCount = Math.max(
     ...departments.map((dept) => dept.count),
     1,
@@ -242,13 +246,13 @@ export function StaffSection({ onBack }: StaffSectionProps) {
         </motion.button>
 
         <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
+          <div className="relative h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
             <Image
               src="/images/hh-logo.jpg"
               alt="HH"
-              width={32}
-              height={32}
+              fill
               className="object-cover"
+              sizes="32px"
             />
           </div>
           <ThemeToggle />
@@ -265,12 +269,20 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           quality={80}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+        <button
+          type="button"
+          onClick={() =>
+            setPreviewImage({ src: "/images/staff-3.jpg", alt: "Our Team" })
+          }
+          className="absolute inset-0 z-10"
+          aria-label="View team hero image"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/18 to-transparent" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="absolute bottom-6 left-5 right-5"
+          className="absolute bottom-6 left-5 right-5 z-20 pointer-events-none"
         >
           <p className="text-primary text-[10px] tracking-[0.3em] uppercase mb-1">
             Meet Our
@@ -454,11 +466,17 @@ export function StaffSection({ onBack }: StaffSectionProps) {
           <div className="-mx-5 px-5 overflow-x-auto pb-2">
             <div className="flex gap-3 w-max">
               {staffGalleryImages.map((src, index) => (
-                <motion.div
+                <motion.button
                   key={src}
+                  type="button"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1 + index * 0.04 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() =>
+                    setPreviewImage({ src, alt: `Staff group ${index + 1}` })
+                  }
                   className="relative w-52 h-32 rounded-xl overflow-hidden border border-border bg-card shadow-sm"
                 >
                   <Image
@@ -468,7 +486,7 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                     className="object-cover"
                     sizes="208px"
                   />
-                </motion.div>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -517,7 +535,7 @@ export function StaffSection({ onBack }: StaffSectionProps) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 100, scale: 0.95 }}
               transition={{ type: "spring", damping: 25 }}
-              className="fixed bottom-0 left-0 right-0 z-50 bg-card rounded-t-3xl max-h-[80vh] overflow-y-auto"
+              className="fixed bottom-0 left-0 right-0 z-50 bg-card rounded-t-3xl h-[86vh] overflow-y-auto"
             >
               {/* Handle */}
               <div className="flex justify-center py-3">
@@ -537,12 +555,34 @@ export function StaffSection({ onBack }: StaffSectionProps) {
               {/* Content */}
               <div className="px-6 pb-8">
                 {/* Avatar & Name */}
-                <div className="flex items-center gap-4 mb-6">
-                  <StaffAvatar
-                    member={selectedMember}
-                    className="w-28 h-20 rounded-2xl"
-                    initialsClassName="text-xl"
-                  />
+                <div className="mb-6 flex flex-col items-center text-center gap-3">
+                  {selectedMember.image ? (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setPreviewImage({
+                          src: selectedMember.image as string,
+                          alt: selectedMember.name,
+                        })
+                      }
+                      className="relative w-full max-w-[18rem] aspect-[1.55] rounded-2xl overflow-hidden border border-border bg-secondary"
+                      aria-label={`View full photo of ${selectedMember.name}`}
+                    >
+                      <Image
+                        src={selectedMember.image as string}
+                        alt={selectedMember.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 88vw, 18rem"
+                      />
+                    </button>
+                  ) : (
+                    <StaffAvatar
+                      member={selectedMember}
+                      className="w-full max-w-[18rem] aspect-[1.55] rounded-2xl"
+                      initialsClassName="text-2xl"
+                    />
+                  )}
                   <div>
                     <h3 className="font-heading text-lg font-bold text-foreground">
                       {selectedMember.name}
@@ -553,6 +593,11 @@ export function StaffSection({ onBack }: StaffSectionProps) {
                     <p className="text-xs text-muted-foreground">
                       {selectedMember.department}
                     </p>
+                    {selectedMember.image && (
+                      <p className="text-[10px] text-muted-foreground mt-2">
+                        Tap photo to view full image
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -657,6 +702,45 @@ export function StaffSection({ onBack }: StaffSectionProps) {
               </div>
             </motion.div>
           </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {previewImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-black/90 p-4 flex items-center justify-center"
+            onClick={() => setPreviewImage(null)}
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setPreviewImage(null)}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 border border-white/20 flex items-center justify-center"
+              aria-label="Close image preview"
+            >
+              <X className="w-5 h-5 text-white" />
+            </motion.button>
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", damping: 22 }}
+              className="relative w-full max-w-5xl h-[78vh]"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <Image
+                src={previewImage.src}
+                alt={previewImage.alt}
+                fill
+                className="object-contain"
+                sizes="100vw"
+                priority
+              />
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.div>

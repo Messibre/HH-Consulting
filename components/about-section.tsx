@@ -66,13 +66,13 @@ export function AboutSection({ onBack }: AboutSectionProps) {
         </motion.button>
 
         <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
+          <div className="relative h-8 w-8 rounded-lg overflow-hidden shadow-lg ring-1 ring-primary/30">
             <Image
               src="/images/hh-logo.jpg"
               alt="HH"
-              width={32}
-              height={32}
+              fill
               className="object-cover"
+              sizes="32px"
             />
           </div>
           <ThemeToggle />
