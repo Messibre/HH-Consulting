@@ -36,6 +36,9 @@ export function ContentWalls({
   const contents = allContentByCategory[categoryId] ?? [];
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentContent = contents[currentIndex];
+  const preloadStart = Math.max(0, currentIndex - 2);
+  const preloadEnd = Math.min(contents.length - 1, currentIndex + 2);
+  const preloadWindow = contents.slice(preloadStart, preloadEnd + 1);
 
   const goNext = () => {
     if (currentIndex < contents.length - 1) {
@@ -160,6 +163,7 @@ export function ContentWalls({
                 className="object-cover"
                 quality={85}
                 sizes="(min-width: 1024px) 50vw, 100vw"
+                priority
               />
             ) : (
               <ProjectPlaceholder item={currentContent} />
@@ -330,6 +334,24 @@ export function ContentWalls({
           </div>
         </motion.div>
       </AnimatePresence>
+
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-[9999px] top-0 h-px w-px overflow-hidden"
+      >
+        {preloadWindow.map((item) =>
+          item.hasImage && item.image ? (
+            <Image
+              key={item.id}
+              src={item.image}
+              alt=""
+              width={16}
+              height={16}
+              loading="eager"
+            />
+          ) : null,
+        )}
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
